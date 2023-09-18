@@ -1,54 +1,115 @@
-import InputWithLabel from './Components/InputWithLabel';
-import './App.css'
-import List from './Components/List'
-import React from 'react'
+import SearchForm from './Components/SearchForm'
+import "./App.css";
+import List from "./Components/List";
+import * as React from "react";
+import axios from "axios";
 
 
-const useStorageStage = (key,initialState)=>{
-  const [value,setValue] = React.useState(localStorage.getItem(key) || initialState);
-  React.useEffect(()=>{
-    localStorage.setItem(key,value)
-  },[value,key]);
-  return [value,setValue]
+
+const useStorageStage = (key, initialState) => {
+  const [value, setValue] = React.useState(
+    localStorage.getItem(key) || initialState
+  );
+  React.useEffect(() => {
+    localStorage.setItem(key, value);
+  }, [value, key]);
+  return [value, setValue];
 };
-const App = ()=> {
-  const [searchTerm,setSearchTerm] = useStorageStage('search','react')
 
-  const stories = [
-    {
-    title: 'React',
-    url: 'https://reactjs.org/',
-    author: 'Jordan Walke',
-    num_comments: 3,
-    points: 4,
-    objectID: 0,
-    },
-    {
-    title: 'Redux',
-    url: 'https://redux.js.org/',
-    author: 'Dan Abramov, Andrew Clark',
-    num_comments: 2,
-    points: 5,
-    objectID: 1,
-  },
-  ];
-  const handleSearch = (event)=>{
-    setSearchTerm(event.target.value)
-  }
-  const filterList = stories.filter((item)=>
-  item.title.toLowerCase().includes(searchTerm.toLowerCase())
+const App = () => {
+  const storiesReducer = (state, action) => {
+    switch (action.type) {
+      case 'STORIES-FETCH-INIT':
+        return {
+          ...state,
+          isLoading:true,
+          isError:false
+        } 
+      case 'STORIES-FETCH-SUCCESS':
+        return {
+          ...state,
+          isLoading:false,
+          isError:false,
+          data:action.payload
+        }
+      case 'STORIES-FETCH-FAILURE':
+        return {
+          ...state,
+          isLoading:false,
+          isError:true,
+        }
+      case 'STORIES-REMOVE':
+        return {
+          ...state,
+          data:state.data.filter(
+            (story) => action.payload.objectID !== story.objectID
+          )
+        };
+      default: 
+        throw new Error();
+    }
+  };
+  
+  const API_Endpoint = 'https://hn.algolia.com/api/v1/search?query=';
+  const [stories, dispatchStories] = React.useReducer(storiesReducer,{data : [],isLoading:false,isError:false} );
+  const [searchTerm, setSearchTerm] = useStorageStage("search", "react");
+  const [url,setUrl] = React.useState(
+    `${API_Endpoint}${searchTerm}`
   )
+
+  const handleSearchInput = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+
+  const handleRemoveStory = (item) => {
+    dispatchStories({
+      type: 'STORIES-REMOVE',
+      payload: item,
+    });
+  };
+
+  const handleFetchStories = React.useCallback(async()=> {
+    dispatchStories({
+      type:'STORIES-FETCH-INIT'
+    })
+    
+    try{
+    const result = await axios.get(url);
+
+    dispatchStories({
+        type:'STORIES-FETCH-SUCCESS',
+        payload:result.data.hits
+      });
+    }catch{
+      dispatchStories({
+        type:'STORIES-FETCH-FAILURE'
+      })
+    }
+  },[url])
+
+  React.useEffect(() => {
+    handleFetchStories()
+  }, [handleFetchStories]);
+
+ 
+  const handleSearchSubmit=(event)=>{
+    setUrl(`${API_Endpoint}${searchTerm}`);
+    event.preventDefault();
+  }
   return (
     <div>
       <h1>Hello</h1>
-      <InputWithLabel onInputChange={handleSearch} value={searchTerm} id='search' label='Search'/>
-
-      <hr/>
-      <List list={filterList}/>
+      <SearchForm searchTerm={searchTerm} handleSearchInput={handleSearchInput} handleSearchSubmit={handleSearchSubmit}/>
+      <hr />
+      {stories.isError && <p>Something went wrong ...</p>}
+      {stories.isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <List list={stories.data} onRemoveItem={handleRemoveStory} />
+      )}
     </div>
-    
+  );
+};
 
-  )
-}
-
-export default App
+export default App;

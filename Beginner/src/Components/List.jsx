@@ -1,11 +1,11 @@
 import Item from "./Item";
 
 
-const List = ({list}) => 
+const List = ({list,onRemoveItem}) => 
     <div>
       <ul>
-        {list.map(({objectID,...item})=>
-            <Item {...item} key={objectID}/>
+        {list.map((item)=>
+            <Item item={item} key={item.objectID} onRemoveItem={onRemoveItem}/>
         )}
       </ul>
       
