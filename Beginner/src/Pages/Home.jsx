@@ -1,4 +1,4 @@
-import SliderMom from '../Components/SliderMom'
+import SliderMom from '../Components/Slider/SliderMom'
 import HomeBG from '../Components/HomeBG'
 
 const Home = () => {

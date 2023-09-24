@@ -1,8 +1,8 @@
 import React from "react";
 import Slider from "react-slick";
 import SliderSonItem from "./SliderSonItem";
-import SlideData from '../Data/SlideData'
-import { ButtonSliderContainer,SliderSonContainer } from "../Styles/Slider.style";
+import SlideData from '../../Data/SlideData'
+import { ButtonSliderContainer,SliderSonContainer } from "../../Styles/Slider.style";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 

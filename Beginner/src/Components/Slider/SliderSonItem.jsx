@@ -1,4 +1,4 @@
-import { SliderSonItemContainer } from "../Styles/Slider.style"
+import { SliderSonItemContainer } from "../../Styles/Slider.style"
 
 const SliderSonItem = ({url,title}) => {
   return (

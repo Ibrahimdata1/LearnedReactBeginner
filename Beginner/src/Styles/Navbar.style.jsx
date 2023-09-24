@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom'
 
 export const NavbarContainer = styled.nav`
     width: 100%;
+    position: fixed;
+    top: 0;
     height: ${(props)=>(props.extendNavbar ? '100vh' : '80px')};
     background-color: rgba(0, 0, 0, 0.959);
     display: flex;

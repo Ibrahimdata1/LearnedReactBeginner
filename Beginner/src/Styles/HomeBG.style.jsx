@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const BackgroundContainer = styled.div`
     display: flex;
     margin-bottom: 3rem;
+    margin-top: 80px;
     height: 100vh;
     /* background-color: black; */
     background: url('/Images/library.jpg')center;
