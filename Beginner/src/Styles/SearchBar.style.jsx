@@ -1,36 +1,37 @@
 import styled from "styled-components";
 
 export const SearchContainer = styled.div`
-display: block;
-display: flex;
-justify-content: space-around;
-align-items: center;
-margin-top: 80px;
-border-bottom: 2px solid #f3f3f3;
-padding: 20px;
-margin-left: 2rem;
-`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 80px;
+  border-bottom: 2px solid #f3f3f3;
+  padding: 20px;
+  margin-left: 2rem;
+`;
 export const SearchContent = styled.div`
-
-    input{
-        padding: 12px 20px;
-        border: none;
-        background: #f7f6f6;
-        outline: none;
-        z-index: -3;
-        margin-right: 20px;
-        border-radius: 5px;
-        position: relative;
-        width: 14rem;
-    }
-`
+  flex: 4;
+  display: flex;
+  justify-content: center;
+`;
+export const SearchInput = styled.input`
+    padding: 12px 20px;
+    border: none;
+    background: #f7f6f6;
+    outline: none;
+    margin-right: 20px;
+    border-radius: 5px;
+    position: relative;
+    width: 14rem;
+    color: black;
+`;
 export const IconLink = styled.a`
-    text-decoration:none;
-    color: white    ; 
-    width : 1.5rem;
-    height: 1.5rem;
-    margin-left: 2rem;
-`
+  text-decoration: none;
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 2rem;
+`;
 export const ProfileContainer = styled.div`
-
-`
+  flex: 1;
+`;

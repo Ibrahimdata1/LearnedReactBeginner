@@ -1,13 +1,13 @@
-import { SearchContainer,SearchContent,ProfileContainer,IconLink } from "../Styles/SearchBar.style"
+import { SearchContainer,SearchContent,ProfileContainer,IconLink,SearchInput } from "../Styles/SearchBar.style"
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
-const SearchBar = () => {
+const SearchBar = ({searchHandler}) => {
   return (
     <SearchContainer>
       <SearchContent>
-        <input type="text" placeholder="Search books name..."></input>
+        <SearchInput  type="text" placeholder="Search books name..." onChange={searchHandler}/>
       </SearchContent>
       <ProfileContainer>
         <IconLink>

@@ -8,7 +8,7 @@ const SideBarHarakat = () => {
   return (
     <SubSideBarContainer>
       <SubSideBarTitle>Harakat</SubSideBarTitle>
-      <SubSideBarLabelContainer>
+      <SubSideBarLabelContainer style={{marginRight:'25px'}}>
         <SubSideBarItemLabel title='100% Harakat'/>
         <SubSideBarItemLabel title='50% Harakat'/>
         <SubSideBarItemLabel title='No Harakat'/>

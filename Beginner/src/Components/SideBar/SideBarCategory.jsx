@@ -9,7 +9,7 @@ const SideBarCategory = () => {
   return (
     <SubSideBarContainer>
       <SubSideBarTitle>Catagory</SubSideBarTitle>
-      <SubSideBarLabelContainer style={{marginRight:'65px'}}>
+      <SubSideBarLabelContainer style={{marginRight:'60px'}}>
         <SideBarCategoryLabel title='All'/>
         <SideBarCategoryLabel title='Aqeedah'/>
         <SideBarCategoryLabel title='Manhaj'/>

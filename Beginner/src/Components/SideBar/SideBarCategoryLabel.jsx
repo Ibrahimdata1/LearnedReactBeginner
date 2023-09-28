@@ -1,10 +1,16 @@
-import {SubSideBarLabel} from '../../Styles/SideBar.style'
+import { SubSideBarSpan,SubSideBarLabel, SubSideBarInput } from '../../Styles/SideBar.style'
+import {FilterContext} from '../Context';
+import React from 'react';
 
 const SubSideBarItemLabel = ({title}) => {
+  const {radioHandler} = React.useContext(FilterContext)
+  const injectRadioHandler = () =>{
+    radioHandler(title);
+  };
   return (
     <SubSideBarLabel>
-      <input type="radio" name="test" style={{ marginBottom: "4px" }} />
-      <label>{title}</label>
+      <SubSideBarInput type='radio' name='checkbox' onChange={injectRadioHandler}/>
+      <SubSideBarSpan></SubSideBarSpan>{title}
     </SubSideBarLabel>
   );
 };

@@ -12,7 +12,7 @@ const SideBar = () => {
       </LogoContainer>
       <SideBarCategory/>
       <SideBarPrice/>
-      <SideBarHarakat/>
+      <SideBarHarakat/> 
     </SideBarContainer>
   )
 }

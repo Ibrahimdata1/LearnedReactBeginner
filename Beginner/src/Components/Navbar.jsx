@@ -14,9 +14,12 @@ import {
 } from "../Styles/Navbar.style";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import BadgeCart from "./BadgeCart";
+import { CartContext } from "./Context";
+import ModalCart from "../Components/ModalCart";
 
 const Navbar = () => {
   const [extendNavbar, setExtendNavbar] = React.useState(false);
+  const {handleOpen} = React.useContext(CartContext)
   return (
     <NavbarContainer extendNavbar={extendNavbar}>
       <NavbarInnerContainer>
@@ -38,7 +41,9 @@ const Navbar = () => {
         </LeftContainer>
         <RightContainer>
           <Logo style={{ display: "flex", alignItems: "flex-end" }}>
-            <BadgeCart />
+            <a onClick={handleOpen}>
+              <BadgeCart />
+            </a>
           </Logo>
         </RightContainer>
       </NavbarInnerContainer>
@@ -50,6 +55,7 @@ const Navbar = () => {
           <NavbarLinkExtend to="/about">Contact Us</NavbarLinkExtend>
         </NavbarExtendedContainer>
       )}
+      <ModalCart/>
     </NavbarContainer>
   );
 };
