@@ -56,11 +56,10 @@ export default function ModalCart() {
     cartLength,
     cart,
   } = React.useContext(CartContext);
-  const itemsPrice = cart.reduce((a, b) => a + b.qty * b.price, 0);
+  const itemsPrice = cart.reduce((preVal, curVal) => preVal + curVal.qty * curVal.price, 0);
   const shippingPrice = itemsPrice > 2000 ? 0 : 20;
   const totalPrice = itemsPrice + shippingPrice;
   return (
-    <div>
       <Modal
         open={open}
         onClose={handleClose}
@@ -126,6 +125,6 @@ export default function ModalCart() {
           </ModalContainer>
         </Box>
       </Modal>
-    </div>
+
   );
 }

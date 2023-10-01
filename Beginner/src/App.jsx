@@ -4,7 +4,8 @@ import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 import Products from "./Pages/Products";
 import { CartContext } from "./Components/Context";
-import React from "react";
+import React, { useEffect } from "react";
+import Student from "./Pages/Student";
 
 const App = () => {
 //-------------CartFunction------------//
@@ -14,9 +15,11 @@ const onAdd = (item) =>{
     if (exist){
         const newCart = cart.map((cart)=>cart.id === item.id ? {...exist, qty:exist.qty+1}:cart)
         setCart(newCart);
+        localStorage.setItem('cart',JSON.stringify(newCart));
     }else{
         const newCart = [...cart,{...item,qty:1}];
         setCart(newCart);
+        localStorage.setItem('cart',JSON.stringify(newCart));
     }
 };
 const onRemove = (item) =>{
@@ -24,16 +27,23 @@ const onRemove = (item) =>{
   if (exist.qty === 1){
       const newCart = cart.filter((cart)=>cart.id !== item.id);
       setCart(newCart);
+      localStorage.setItem('cart',JSON.stringify(newCart));
   }else{
       const newCart = cart.map((cart)=>cart.id === item.id ? {...exist,qty:exist.qty-1}:cart);
       setCart(newCart);
+      localStorage.setItem('cart',JSON.stringify(newCart));
   }
 };
 const onClear = (item) => {
-  const newcart = cart.filter((cart) => cart.id !== item.id)
-  setCart(newcart);
-  localStorage.setItem('cartItem',JSON.stringify(newcart));
+  const newCart = cart.filter((cart) => cart.id !== item.id)
+  setCart(newCart);
+  localStorage.setItem('cart',JSON.stringify(newCart));
 };
+useEffect(()=>{
+  setCart(
+    localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')):[]
+  );  
+},[]);
 const cartLength = cart.length;
 //---------showCartModal-----------//
 const [open, setOpen] = React.useState(false);
@@ -46,7 +56,7 @@ const [open, setOpen] = React.useState(false);
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/contact" />
+        <Route path="/student" element={<Student/>}/>
         <Route path="/about" />
       </Routes>
       </CartContext.Provider>

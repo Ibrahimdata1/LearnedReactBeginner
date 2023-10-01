@@ -32,7 +32,7 @@ const Navbar = () => {
           <NavbarLinkContainer>
             <NavbarLink to="/">Home</NavbarLink>
             <NavbarLink to="/products">Products</NavbarLink>
-            <NavbarLink to="/contact">About Us</NavbarLink>
+            <NavbarLink to="/student">Student Of Knowledge</NavbarLink>
             <NavbarLink to="/about">Contact Us</NavbarLink>
             <OpenLinksButton onClick={() => setExtendNavbar((curr) => !curr)}>
               {extendNavbar ? <>&#10005;</> : <>&#8801;</>}{" "}
@@ -51,7 +51,7 @@ const Navbar = () => {
         <NavbarExtendedContainer>
           <NavbarLinkExtend to="/">Home</NavbarLinkExtend>
           <NavbarLinkExtend to="/products">Products</NavbarLinkExtend>
-          <NavbarLinkExtend to="/contact">About Us</NavbarLinkExtend>
+          <NavbarLinkExtend to="/student">Student Of Knowledge</NavbarLinkExtend>
           <NavbarLinkExtend to="/about">Contact Us</NavbarLinkExtend>
         </NavbarExtendedContainer>
       )}

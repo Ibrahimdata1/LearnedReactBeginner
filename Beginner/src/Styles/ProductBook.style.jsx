@@ -14,10 +14,13 @@ export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 30%;
 `;
 export const CardIMG = styled.img`
-  width: 9rem;
+  width: 297px;
+  height: 169px;
   margin-bottom: 0.3rem;
+  border-radius: 5px;
 `;
 export const CardDetails = styled.div`
   display: flex;

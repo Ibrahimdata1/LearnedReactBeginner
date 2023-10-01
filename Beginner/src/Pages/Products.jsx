@@ -32,6 +32,7 @@ const filterSearch = displayProducts.filter((item)=>{
    return( item.title.toLowerCase().includes(searchProduct.toLowerCase()))
 })
 
+
   return (
     <FilterContext.Provider value={{radioHandler,onRemoveProduct}}>
       <SearchBar searchHandler={searchHandler} />

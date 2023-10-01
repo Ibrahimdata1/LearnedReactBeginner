@@ -1,0 +1,9 @@
+.BoxEffect{
+    transition: 400ms ease-in-out;
+}
+.BoxEffect:hover{
+    transform: scale(1.05);
+}
+.BoxShadow{
+    filter: brightness(60%);
+}

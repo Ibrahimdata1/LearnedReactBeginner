@@ -1,18 +1,19 @@
+import {
+  SliderMomContainer,
+  SliderMomContent,
+  Title,
+} from "../../Styles/Slider.style";
+import SliderSon from "./SliderSon";
 
-import { SliderMomContainer,SliderMomContent,Title,WrapMomSlide } from '../../Styles/Slider.style'
-import SliderSon from './SliderSon'
-
-const Slider = ({title}) => {
+const SliderMom = ({ title, slidedata }) => {
   return (
     <SliderMomContainer>
       <SliderMomContent>
         <Title>{title}</Title>
-        <WrapMomSlide>
-            <SliderSon/>
-        </WrapMomSlide>
+        <SliderSon slidedata={slidedata} />
       </SliderMomContent>
     </SliderMomContainer>
-  )
-}
+  );
+};
 
-export default Slider
+export default SliderMom;
