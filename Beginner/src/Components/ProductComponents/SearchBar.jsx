@@ -1,4 +1,4 @@
-import { SearchContainer,SearchContent,ProfileContainer,IconLink,SearchInput } from "../Styles/SearchBar.style"
+import { SearchContainer,SearchContent,ProfileContainer,IconLink,SearchInput } from "../../Styles/SearchBar.style"
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';

@@ -1,12 +1,16 @@
-import SliderMom from "../Components/Slider/SliderMom";
-import SDprogramMom from "../Components/SDprogramMom";
+import SliderMom from "../Components/SliderGeneral/SliderMom";
+import SDprogramMom from "../Components/SDcomponents/SDprogramMom";
 import SliderData from "../Data/SlideData";
 import BookData from "../Data/BookData";
+import VideoPlayer from "../Components/VideoComponents/VideoPlayer";
+import React from "react";
 
 const Student = () => {
+  
   return (
     <>
-      <SDprogramMom/>
+      <SDprogramMom />
+      <VideoPlayer/>
       <SliderMom title="Recommened" slidedata={SliderData}/>
       <SliderMom title="Tazkiyah" slidedata={BookData} />
       <SliderMom title="Aqeedah" slidedata={BookData} />

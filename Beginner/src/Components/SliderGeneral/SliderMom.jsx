@@ -5,12 +5,12 @@ import {
 } from "../../Styles/Slider.style";
 import SliderSon from "./SliderSon";
 
-const SliderMom = ({ title, slidedata }) => {
+const SliderMom = ({ title, slidedata}) => {
   return (
     <SliderMomContainer>
       <SliderMomContent>
         <Title>{title}</Title>
-        <SliderSon slidedata={slidedata} />
+        <SliderSon slidedata={slidedata}/>
       </SliderMomContent>
     </SliderMomContainer>
   );

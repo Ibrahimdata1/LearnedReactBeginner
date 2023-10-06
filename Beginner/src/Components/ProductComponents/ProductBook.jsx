@@ -1,4 +1,4 @@
-import { CardContainer} from "../Styles/ProductBook.style"
+import { CardContainer} from "../../Styles/ProductBook.style"
 import ProductBookItem from "./ProductBookItem"
 
 

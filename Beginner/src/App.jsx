@@ -6,6 +6,8 @@ import Products from "./Pages/Products";
 import { CartContext } from "./Components/Context";
 import React, { useEffect } from "react";
 import Student from "./Pages/Student";
+import VidPlayerData from "./Data/VidPlayerData";
+
 
 const App = () => {
 //-------------CartFunction------------//
@@ -49,9 +51,15 @@ const cartLength = cart.length;
 const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [urlVid, setUrlVid] = React.useState(VidPlayerData);
+  const changeVidUrl = (item) => {
+    const newUrl = urlVid.map((urlVid)=>( {...urlVid, url: item.vidUrl}) );
+   setUrlVid(newUrl);
+  };
   return (
     <BrowserRouter>
-      <CartContext.Provider value={{onAdd,onRemove,cartLength,cart,setCart,onClear,open,setOpen,handleClose,handleOpen}}>
+      <CartContext.Provider value={{onAdd,onRemove,cartLength,cart,setCart,onClear,open,setOpen,handleClose,handleOpen,changeVidUrl,urlVid}}>
         <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

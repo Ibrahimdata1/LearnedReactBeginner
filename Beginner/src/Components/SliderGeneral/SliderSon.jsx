@@ -8,15 +8,15 @@ import {
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
-const SliderSon = ({ slidedata }) => {
+const SliderSon = ({ slidedata,changeVidUrl }) => {
   const settings = {
     centerMode: false,
     arrows: false,
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToShow: 4,
+    slidesToScroll: 2,
     responsive: [
       {
         breakpoint: 1024,
@@ -52,7 +52,7 @@ const SliderSon = ({ slidedata }) => {
       <Slider ref={arrowRefSlider} {...settings}>
 
           {slidedata.map((item) => (
-            <SliderSonItem key={item.id} {...item}/>
+            <SliderSonItem key={item.id} item={item} changeVidUrl={changeVidUrl}/>
           ))}
 
       </Slider>

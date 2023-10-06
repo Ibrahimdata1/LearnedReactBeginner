@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
-import SDCard from "./SdCard";
-import { SDprogramSonContainer,  ButtonSliderContainer } from "../Styles/SDprogram.style";
+import SDCard from '../../Components/SDcomponents/SDCard'
+import { SDprogramSonContainer,  ButtonSliderContainer } from "../../Styles/SDprogram.style";
 
 
 

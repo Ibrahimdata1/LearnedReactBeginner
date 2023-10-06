@@ -1,5 +1,6 @@
 .BoxEffect{
     transition: 400ms ease-in-out;
+    cursor: pointer;
 }
 .BoxEffect:hover{
     transform: scale(1.05);
@@ -7,3 +8,15 @@
 .BoxShadow{
     filter: brightness(60%);
 }
+.bgColor{
+    background-color: #ececec;
+}
+.dot{
+    background-color: #333;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+.carouselDotActive {
+    background-color: #fa2020;
+  }

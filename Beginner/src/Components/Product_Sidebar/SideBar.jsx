@@ -1,4 +1,4 @@
-import { SideBarContainer,LogoContainer } from "../../Styles/SideBar.style"
+import { SideBarContainer,LogoContainer } from '../../Styles/SideBar.style'
 import SideBarCategory from './SideBarCategory'
 import SideBarPrice from './SideBarPrice'
 import SideBarHarakat from './SideBarHarakat'

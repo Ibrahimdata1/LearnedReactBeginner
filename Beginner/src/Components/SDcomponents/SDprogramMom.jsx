@@ -1,6 +1,6 @@
 import React from "react";
-import { SDprogramMomContent,SDprogramMomContainer } from "../Styles/SDprogram.style";
-import SDdata_vid from '../Data/SDdata_vid'
+import { SDprogramMomContent,SDprogramMomContainer } from "../../Styles/SDprogram.style";
+import SDdata_vid from '../../Data/SDdata_vid'
 import SDProgramSon from "./SDprogramSon";
 
 

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import ProductBook from "../Components/ProductBook";
-import SearchBar from "../Components/SearchBar";
-import SideBar from "../Components/SideBar/SideBar";
+import ProductBook from "../Components/Productcomponents/ProductBook";
+import SearchBar from "../Components/ProductComponents/SearchBar";
+import SideBar from '../Components/Product_Sidebar/SideBar'
 import BookData from '../Data/BookData'
 import {FilterContext} from "../Components/Context";
 

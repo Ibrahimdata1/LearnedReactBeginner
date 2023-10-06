@@ -4,19 +4,24 @@ import Card from "@mui/joy/Card";
 import CardCover from "@mui/joy/CardCover";
 import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
+import { CartContext } from '../../Components/Context';
 
 
-const SliderSonItem = ({ url, comment}) => {
+const SliderSonItem = ({item}) => {
+  const {changeVidUrl} = React.useContext(CartContext)
+  const changeVidUrlFn = () =>{
+    changeVidUrl(item)
+  }
   return (
     <Box
       component="ul"
       sx={{ display: "flex", gap: 2, flexWrap: "wrap", p: 1, m: 0 }}
-      className="BoxEffect"
+      className="BoxEffect" onClick={changeVidUrlFn}
     >
-      <Card component="li" sx={{ minWidth: 300, flexGrow: 1 }}>
+      <Card component="li" sx={{ minWidth: 200, flexGrow: 1 }}>
         
           <CardCover>
-            <img src={url} loading="lazy" alt="" />
+            <img src={item.url} loading="lazy" alt=""/>
           </CardCover>
         
         <CardContent>

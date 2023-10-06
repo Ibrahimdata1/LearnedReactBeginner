@@ -17,8 +17,9 @@ export const CardContent = styled.div`
   width: 30%;
 `;
 export const CardIMG = styled.img`
-  width: 297px;
-  height: 169px;
+  max-width: 350px;
+  max-height: 200px;
+  object-fit: contain;
   margin-bottom: 0.3rem;
   border-radius: 5px;
 `;
@@ -27,12 +28,16 @@ export const CardDetails = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
 `;
 export const CardTitle = styled.h3`
   margin-bottom: 0.5rem;
+  margin-top: 0;
 `;
-export const CardPrice = styled.div``;
+export const CardPrice = styled.div`
+    padding-bottom: 15px;
+`;
 export const CardComment = styled.div`
   max-width: 12rem;
   text-align: center;
@@ -42,3 +47,4 @@ export const ButtonItem = styled(Button)`
     width: 100%;
     cursor: pointer;
 `
+
