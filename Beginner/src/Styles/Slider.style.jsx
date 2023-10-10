@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {motion} from 'framer-motion'
 
 export const SliderMomContent = styled.div`
   width: 100%;
@@ -6,7 +7,7 @@ export const SliderMomContent = styled.div`
   padding: 0.8rem 0;
   text-align: left;
 `;
-export const SliderMomContainer = styled.div``;
+export const SliderMomContainer = styled(motion.div)``;
 export const Title = styled.h1`
   font-weight: 400;
   border-bottom: 2px solid #f4f5f6;
@@ -19,7 +20,7 @@ export const WrapMomSlide = styled.div``;
 export const SliderSonContainer = styled.div`
   position: relative;
 `;
-export const ButtonSliderContainer = styled.div`
+export const ButtonSliderContainer = styled(motion.div)`
   button {
     width: 2rem;
     height: 2rem;

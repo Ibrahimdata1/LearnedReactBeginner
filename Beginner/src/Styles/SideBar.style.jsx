@@ -5,7 +5,7 @@ export const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1b1b1b;
+  background-color: #100C08;
   color: white;
   flex: 1;
   padding-bottom: 1.5rem;

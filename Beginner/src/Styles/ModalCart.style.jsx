@@ -6,7 +6,7 @@ export const ModalContainer = styled.aside`
   width: 100%;
   height: 95vh;
   justify-content: flex-start;
-  color: black;
+  color: #18150d;
 `;
 export const ModalTitle = styled.h2`
   margin-bottom: 25px;
@@ -99,14 +99,17 @@ export const TotalPriceContainer = styled.div`
 export const TotalPriceTitle = styled.h1`
   flex: 1;
   font-weight: bold;
+  color: gold;
 `;
 export const TotalPriceResult = styled.div`
   display: flex;
   flex: 1;
   justify-content: flex-end;
   align-items: center;
+  color: gold;
 `;
 export const ButtonCheckout = styled.div`
     display: flex;
     justify-content: center;
+    margin: 20px 0;
 `

@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const CarouselContainer = styled.div``;
+export const CarouselContainer = styled.div`
+    padding-bottom: 20px;
+`;
 
 export const CarouselImgContent = styled.div`
   position: relative;
@@ -35,6 +37,7 @@ export const Left = styled(motion.div)`
   height: 25px;
   width: 25px;
   left: 0;
+  cursor: pointer;
 `;
 export const Right = styled(motion.div)`
   background-color: #fb666675;
@@ -49,10 +52,12 @@ export const Right = styled(motion.div)`
   height: 25px;
   width: 25px;
   right: 0;
+  cursor: pointer;
 `;
 export const Indicator = styled.div`
   margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 20px;
+  cursor: pointer;
 `;

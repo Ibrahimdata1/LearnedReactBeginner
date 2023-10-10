@@ -35,11 +35,13 @@ const filterSearch = displayProducts.filter((item)=>{
 
   return (
     <FilterContext.Provider value={{radioHandler,onRemoveProduct}}>
-      <SearchBar searchHandler={searchHandler} />
-      <ProductsContainer>
-        <SideBar />
-        <ProductBook filterSearch={filterSearch}/>
-      </ProductsContainer>
+      <div style={{backgroundColor:'#18150d'}}>
+          <SearchBar searchHandler={searchHandler} />
+          <ProductsContainer>
+            <SideBar />
+            <ProductBook filterSearch={filterSearch}/>
+          </ProductsContainer>
+      </div>
     </FilterContext.Provider>
   );
 };

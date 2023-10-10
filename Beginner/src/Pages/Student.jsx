@@ -1,21 +1,28 @@
 import SliderMom from "../Components/SliderGeneral/SliderMom";
-import SDprogramMom from "../Components/SDcomponents/SDprogramMom";
 import SliderData from "../Data/SlideData";
 import BookData from "../Data/BookData";
 import VideoPlayer from "../Components/VideoComponents/VideoPlayer";
 import React from "react";
+import Parallax from "../Components/Parallax";
 
 const Student = () => {
-  
+    const [showSlider,setShowSlider] = React.useState(false)
+    setTimeout(()=>{
+      setShowSlider(true);
+    },3000);
   return (
-    <>
-      <SDprogramMom />
+    <div style={{backgroundColor:'#18150d'}}>
+      <Parallax/>
       <VideoPlayer/>
-      <SliderMom title="Recommened" slidedata={SliderData}/>
-      <SliderMom title="Tazkiyah" slidedata={BookData} />
-      <SliderMom title="Aqeedah" slidedata={BookData} />
-      <SliderMom title="Fiqh" slidedata={SliderData} />
-    </>
+      {showSlider && (
+      <div>
+          <SliderMom title="Recommened" slidedata={SliderData}/>
+          <SliderMom title="Tazkiyah" slidedata={BookData} />
+          <SliderMom title="Aqeedah" slidedata={BookData} />
+          <SliderMom title="Fiqh" slidedata={SliderData} />
+      </div>
+      )}
+    </div>
   );
 };
 

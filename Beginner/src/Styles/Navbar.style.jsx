@@ -7,7 +7,7 @@ export const NavbarContainer = styled.nav`
   position: fixed;
   top: 0;
   height: ${(props) => (props.extendNavbar ? "100vh" : "80px")};
-  background-color: rgba(0, 0, 0, 0.959);
+  background-color: #1f1008;
   display: flex;
   flex-direction: column;
 
@@ -46,7 +46,11 @@ export const NavbarLink = styled(Link)`
   font-size: large;
   text-decoration: none;
   margin: 10px;
-
+  padding-bottom: 5px;
+  &:hover{
+    filter: brightness(80%);
+  }
+  
   @media (max-width: 760px) {
     display: none;
   }
@@ -61,6 +65,10 @@ export const Logo = styled.div`
   margin: 10px 10px 10px 60px;
   max-width: 180px;
   height: auto;
+  &:hover {
+    transform: scale(1.2);
+    transition-duration: 1.2s;
+  }
 
   @media (max-width: 760px) {
     display: none;
@@ -81,12 +89,14 @@ export const OpenLinksButton = styled.button`
     display: none;
   }
 `;
-export const NavbarExtendedContainer = styled.div`
+export const NavbarExtendedContainer = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   @media (min-width: 760px) {
     display: none;
   }
 `;
+export const HoverSpace = styled.span`
+
+`

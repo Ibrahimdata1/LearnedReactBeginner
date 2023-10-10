@@ -7,7 +7,7 @@ import { CartContext } from "./Components/Context";
 import React, { useEffect } from "react";
 import Student from "./Pages/Student";
 import VidPlayerData from "./Data/VidPlayerData";
-
+import Footer from "./Components/Footer";
 
 const App = () => {
 //-------------CartFunction------------//
@@ -67,6 +67,7 @@ const [open, setOpen] = React.useState(false);
         <Route path="/student" element={<Student/>}/>
         <Route path="/about" />
       </Routes>
+      <Footer/>
       </CartContext.Provider>
     </BrowserRouter>
   );

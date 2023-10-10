@@ -104,6 +104,8 @@ const CarouselHome = ({ carouselImages }) => {
           <ArrowForwardIosTwoToneIcon />
         </Right>
       </SlideDirection>
+  
+      </CarouselImgContent>
       <Indicator>
         {carouselImages.map((_, index) => (
           <div
@@ -118,7 +120,6 @@ const CarouselHome = ({ carouselImages }) => {
           ></div>
         ))}
       </Indicator>
-      </CarouselImgContent>
     </CarouselContainer>
   );
 };

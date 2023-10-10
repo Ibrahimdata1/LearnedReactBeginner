@@ -11,6 +11,7 @@ import {
   LeftBrandLogo,
   OpenLinksButton,
   NavbarLinkExtend,
+  HoverSpace
 } from "../Styles/Navbar.style";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import BadgeCart from "./BadgeCart";
@@ -19,14 +20,16 @@ import ModalCart from "../Components/ModalCart";
 
 const Navbar = () => {
   const [extendNavbar, setExtendNavbar] = React.useState(false);
-  const {handleOpen} = React.useContext(CartContext)
+  const { handleOpen } = React.useContext(CartContext);
   return (
     <NavbarContainer extendNavbar={extendNavbar}>
       <NavbarInnerContainer>
         <LeftBrandLogo>
-          <Logo>
-            <ImportContactsIcon style={{ fontSize: "50px" }} />
-          </Logo>
+          <a href="/" style={{ color: "white" }}>
+            <Logo>
+              <ImportContactsIcon style={{ fontSize: "50px" }} />
+            </Logo>
+          </a>
         </LeftBrandLogo>
         <LeftContainer>
           <NavbarLinkContainer>
@@ -49,13 +52,14 @@ const Navbar = () => {
       </NavbarInnerContainer>
       {extendNavbar && (
         <NavbarExtendedContainer>
-          <NavbarLinkExtend to="/">Home</NavbarLinkExtend>
           <NavbarLinkExtend to="/products">Products</NavbarLinkExtend>
-          <NavbarLinkExtend to="/student">Student Of Knowledge</NavbarLinkExtend>
+          <NavbarLinkExtend to="/student">
+            Student Of Knowledge
+          </NavbarLinkExtend>
           <NavbarLinkExtend to="/about">Contact Us</NavbarLinkExtend>
         </NavbarExtendedContainer>
       )}
-      <ModalCart/>
+      <ModalCart />
     </NavbarContainer>
   );
 };

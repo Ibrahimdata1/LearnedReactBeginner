@@ -6,13 +6,13 @@ import CarouselHomeData from '../Data/CarouselHomeData'
 
 const Home = () => {
   return (
-    <>
+    <div style={{backgroundColor:'#18150d'}}>
       <HomeBG/>
       <SliderMom title='Student of Knowledge - Foundation' slidedata={SliderData}/>
       <SliderMom title='Tazkiyah' slidedata={SliderData}/>
       <SliderMom title='Aqeedah' slidedata={SliderData}/>
       <CarouselHome carouselImages={CarouselHomeData}/>
-    </>
+    </div>
   )
 }
 

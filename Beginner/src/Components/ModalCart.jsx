@@ -66,7 +66,7 @@ export default function ModalCart() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} style={{ padding: "0 30px" }}>
+        <Box sx={style} style={{ padding: "0 30px",backgroundColor:'#18150d' }}>
           <ModalContainer>
             <ModalTitle>Cart Items</ModalTitle>
             <ModalContent>
@@ -116,6 +116,7 @@ export default function ModalCart() {
                   <Button
                     style={{ width: "90%" }}
                     onClick={() => alert("Implement Checkout!")}
+                    variant="contained" color="success"
                   >
                     Checkout
                   </Button>

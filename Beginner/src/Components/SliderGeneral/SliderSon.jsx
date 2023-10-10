@@ -52,11 +52,13 @@ const SliderSon = ({ slidedata,changeVidUrl }) => {
       <Slider ref={arrowRefSlider} {...settings}>
 
           {slidedata.map((item) => (
-            <SliderSonItem key={item.id} item={item} changeVidUrl={changeVidUrl}/>
+              <SliderSonItem key={item.id} item={item} changeVidUrl={changeVidUrl}/>
           ))}
 
       </Slider>
-      <ButtonSliderContainer>
+      <ButtonSliderContainer initial={{opacity:0}}
+      animate={{opacity:1}}
+      transition={{duration:3,delay:0.5}}>
         <button className="back" onClick={() => arrowRefSlider.current.slickPrev()}>
           <ArrowBackIosNewIcon />
         </button>
