@@ -9,6 +9,7 @@ import Student from "./Pages/Student";
 import VidPlayerData from "./Data/VidPlayerData";
 import Footer from "./Components/Footer";
 
+
 const App = () => {
 //-------------CartFunction------------//
 const [cart,setCart] = React.useState([]);
@@ -57,6 +58,7 @@ const [open, setOpen] = React.useState(false);
     const newUrl = urlVid.map((urlVid)=>( {...urlVid, url: item.vidUrl}) );
    setUrlVid(newUrl);
   };
+
   return (
     <BrowserRouter>
       <CartContext.Provider value={{onAdd,onRemove,cartLength,cart,setCart,onClear,open,setOpen,handleClose,handleOpen,changeVidUrl,urlVid}}>

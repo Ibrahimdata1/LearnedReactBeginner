@@ -3,7 +3,7 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import styled from "styled-components";
 const Parallax = () => {
   const ParallaxContainer = styled.div`
-    width: 100wh;
+    width: 100vw;
     height: 100vh;
     margin-bottom: 60px;
     margin-top: 30px;
@@ -13,7 +13,7 @@ const Parallax = () => {
   const Title = styled(motion.h1)`
     font-weight: bold;
     color: white;
-    z-index: 10;
+    z-index: 20;
     position: absolute;
     top: 5%;
     right: 40%;
@@ -22,32 +22,35 @@ const Parallax = () => {
   const BackgroundBehind = styled(motion.div)`
     position: absolute;
     z-index: 0;
-    background-image: url(/Images/desertMountain.png);
+    background-image: url(/Images/Night.jpg);
     background-position: bottom;
     background-size: cover;
-    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   `;
-  const BackgroundFront = styled.div`
+  const BackgroundFront = styled(motion.div)`
     position: absolute;
     z-index: 20;
     background-image: url(/Images/SubtractMountain.png);
     background-position: bottom;
     background-size: cover;
-    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   `;
-    const ref = React.useRef(null);
-    const {scrollYProgress} = useScroll({
-        target:ref,
-        offset:["start end","end end"]
-    });
+  const ref = React.useRef(null);
+    const {scrollYProgress} = useScroll();
     const backgroundY = useTransform(scrollYProgress, [0,1],["0%","100%"]);
-    const textY = useTransform(scrollYProgress, [0,1],["0%","300%"]);
+    const textY = useTransform(scrollYProgress, [0,1],["0%","700%"]);
 
   return (
-    <ParallaxContainer ref={ref}>
-      <Title animate={{opacity:1,y:textY}} initial={{opacity:0}} transition={{ duration: 1, delay: 0.5 }}>Parallax</Title>
-      <BackgroundBehind animate={{opacity:1,y:backgroundY}} initial={{opacity:0}} transition={{ duration: 1, delay: 0.2 }}/>
-      <BackgroundFront />
+    <ParallaxContainer>
+      <Title style={{y:textY}}>Parallax</Title>
+      <BackgroundBehind/>
+      <BackgroundFront style={{y:backgroundY}}/>
     </ParallaxContainer>
   );
 };

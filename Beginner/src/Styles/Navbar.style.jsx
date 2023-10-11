@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import {motion} from 'framer-motion'
 
 export const NavbarContainer = styled.nav`
   z-index: 1000;
@@ -61,15 +62,10 @@ export const NavbarLinkExtend = styled(Link)`
   text-decoration: none;
   margin: 10px;
 `;
-export const Logo = styled.div`
+export const Logo = styled(motion.div)`
   margin: 10px 10px 10px 60px;
   max-width: 180px;
   height: auto;
-  &:hover {
-    transform: scale(1.2);
-    transition-duration: 1.2s;
-  }
-
   @media (max-width: 760px) {
     display: none;
   }
