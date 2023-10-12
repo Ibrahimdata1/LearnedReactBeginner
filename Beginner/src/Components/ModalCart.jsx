@@ -31,7 +31,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { IconButton } from "@mui/material";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Button from "@mui/material/Button";
-import {motion,AnimatePresence} from 'framer-motion'
+import {motion} from 'framer-motion'
 
 
 const style = {

@@ -8,7 +8,7 @@ import React, { useEffect } from "react";
 import Student from "./Pages/Student";
 import VidPlayerData from "./Data/VidPlayerData";
 import Footer from "./Components/Footer";
-
+import Checkout from './Pages/Checkout'
 
 const App = () => {
 //-------------CartFunction------------//
@@ -45,7 +45,10 @@ const onClear = (item) => {
 useEffect(()=>{
   setCart(
     localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')):[]
-  );  
+  );
+  setZoomBook(
+    localStorage.getItem('checkout') ? JSON.parse(localStorage.getItem('checkout')):null
+  );
 },[]);
 const cartLength = cart.length;
 //---------showCartModal-----------//
@@ -58,16 +61,22 @@ const [open, setOpen] = React.useState(false);
     const newUrl = urlVid.map((urlVid)=>( {...urlVid, url: item.vidUrl}) );
    setUrlVid(newUrl);
   };
-
+//-----------Checkout-----------//
+const[zoomBook,setZoomBook] = React.useState('');
+const changeBook = (item)=>{
+  setZoomBook(item)
+  localStorage.setItem('checkout',JSON.stringify(item));
+}
   return (
     <BrowserRouter>
-      <CartContext.Provider value={{onAdd,onRemove,cartLength,cart,setCart,onClear,open,setOpen,handleClose,handleOpen,changeVidUrl,urlVid}}>
+      <CartContext.Provider value={{onAdd,onRemove,cartLength,cart,setCart,onClear,open,setOpen,handleClose,handleOpen,changeVidUrl,urlVid,changeBook,zoomBook}}>
         <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/student" element={<Student/>}/>
         <Route path="/about" />
+        <Route path="/checkout" element={<Checkout/>}/>
       </Routes>
       <Footer/>
       </CartContext.Provider>

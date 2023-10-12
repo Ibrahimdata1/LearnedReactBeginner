@@ -13,33 +13,15 @@ const SliderSonItem = ({item}) => {
     changeVidUrl(item)
   }
  
-  const boxMotion = {
-    hidden:{
-      opacity:0
-    },
-    visible:{
-      opacity:1,
-      transition:{
-        type:'spring',
-        delay:0.5,
-        mass:50,
-      }
-    }
-  }
   return (
     <Box
-      component={motion.ul}
       sx={{ display: "flex", gap: 2, flexWrap: "wrap", p: 1, m: 0 }}
       className="BoxEffect" onClick={changeVidUrlFn}
-      variants={boxMotion}
-      initial='hidden'
-      animate='visible'
-      transition={{type:'spring',duration:3,delay:0.5}}
     >
       <Card component="li" sx={{ minWidth: 200, flexGrow: 1 }}>
         
           <CardCover>
-            <img src={item.url} loading="lazy" alt=""/>
+            <img src={item.url} alt=""/>
           </CardCover>
         
         <CardContent>
