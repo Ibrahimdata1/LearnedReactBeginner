@@ -4,7 +4,7 @@ import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 import Products from "./Pages/Products";
 import { CartContext } from "./Components/Context";
-import React, { useEffect } from "react";
+import React from "react";
 import Student from "./Pages/Student";
 import VidPlayerData from "./Data/VidPlayerData";
 import Footer from "./Components/Footer";
@@ -13,17 +13,29 @@ import Checkout from './Pages/Checkout'
 const App = () => {
 //-------------CartFunction------------//
 const [cart,setCart] = React.useState([]);
+
 const onAdd = (item) =>{
     const exist = cart.find((cart)=>cart.id === item.id);
-    if (exist){
-        const newCart = cart.map((cart)=>cart.id === item.id ? {...exist, qty:exist.qty+1}:cart)
+    if(exist && item.qty > 1){
+      const newCart = cart.map((cart)=>cart.id === item.id ? {...exist, qty:exist.qty+item.qty}:cart);
+      setCart(newCart);
+    localStorage.setItem('cart',JSON.stringify(newCart));
+    }
+    else if (exist){
+        const newCart = cart.map((cart)=>cart.id === item.id ? {...exist, qty:exist.qty+1}:cart);
         setCart(newCart);
         localStorage.setItem('cart',JSON.stringify(newCart));
     }else{
+      if(item.qty > 1){
+        const newCart = [...cart,{...item,qty:item.qty}];
+        setCart(newCart);
+        localStorage.setItem('cart',JSON.stringify(newCart));
+      }else{
         const newCart = [...cart,{...item,qty:1}];
         setCart(newCart);
         localStorage.setItem('cart',JSON.stringify(newCart));
-    }
+      }
+    };
 };
 const onRemove = (item) =>{
   const exist = cart.find((cart)=>cart.id === item.id);
@@ -38,18 +50,11 @@ const onRemove = (item) =>{
   }
 };
 const onClear = (item) => {
-  const newCart = cart.filter((cart) => cart.id !== item.id)
+  const newCart = cart.filter((cart) => cart.id !== item.id);
   setCart(newCart);
   localStorage.setItem('cart',JSON.stringify(newCart));
 };
-useEffect(()=>{
-  setCart(
-    localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')):[]
-  );
-  setZoomBook(
-    localStorage.getItem('checkout') ? JSON.parse(localStorage.getItem('checkout')):null
-  );
-},[]);
+
 const cartLength = cart.length;
 //---------showCartModal-----------//
 const [open, setOpen] = React.useState(false);
@@ -64,9 +69,19 @@ const [open, setOpen] = React.useState(false);
 //-----------Checkout-----------//
 const[zoomBook,setZoomBook] = React.useState('');
 const changeBook = (item)=>{
-  setZoomBook(item)
-  localStorage.setItem('checkout',JSON.stringify(item));
+  const changeBookItem = item
+  setZoomBook(changeBookItem)
+  localStorage.setItem('checkout',JSON.stringify(changeBookItem));
 }
+React.useEffect(()=>{
+  setZoomBook(
+    localStorage.getItem('checkout') ? JSON.parse(localStorage.getItem('checkout')):null
+  );
+  setCart(
+    localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')):[]
+  );
+  console.log(localStorage.getItem('cart'))
+},[]);
   return (
     <BrowserRouter>
       <CartContext.Provider value={{onAdd,onRemove,cartLength,cart,setCart,onClear,open,setOpen,handleClose,handleOpen,changeVidUrl,urlVid,changeBook,zoomBook}}>

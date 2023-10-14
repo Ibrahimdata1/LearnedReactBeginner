@@ -10,15 +10,16 @@ import { ButtonItem } from "../../Styles/ProductBook.style";
 import {CartContext} from "../Context";
 import React from "react";
 import ShoppingCartCheckoutOutlinedIcon from '@mui/icons-material/ShoppingCartCheckoutOutlined';
+import { Link } from "react-router-dom";
 
 const ProductBookItem = ({item}) => {
     const {onAdd,changeBook} = React.useContext(CartContext)
     const [isHover,setIsHover] = React.useState(false)
   return (
       <CardContent  onMouseOver={()=>setIsHover(true)} onMouseOut={()=>setIsHover(false)}>
-        <a href="/checkout">
+        <Link to={'/checkout'}>
         <CardIMG src={item.url} onClick={()=>changeBook(item)}/>
-        </a>
+        </Link>
         <CardDetails className={`${
             isHover ? "bgColor" : ""
           }`}>
@@ -27,6 +28,7 @@ const ProductBookItem = ({item}) => {
           <CardPrice>${item.price}</CardPrice>
           <ButtonItem variant="contained" color="error" onClick={()=>onAdd(item)}><ShoppingCartCheckoutOutlinedIcon style={{marginRight:'10px'}}/>ADD TO CART</ButtonItem>
         </CardDetails>
+       
       </CardContent>
   );
 };

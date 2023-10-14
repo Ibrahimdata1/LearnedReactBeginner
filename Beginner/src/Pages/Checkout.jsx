@@ -1,21 +1,21 @@
-import ReactImageMagnify from 'react-image-magnify';
+import ReactImageMagnify from "react-image-magnify";
 import styled from "styled-components";
-import {css} from "styled-components";
+import { css } from "styled-components";
 import { Add, Remove } from "@mui/icons-material";
-import { CartContext } from '../Components/Context';
+import { CartContext } from "../Components/Context";
 import React from "react";
-
-const mobile =(props)=>{
+import { Button } from "@mui/material";
+const mobile = (props) => {
   return css`
-      @media only screen and (max-width:992px){
-          ${props}
-      }
+    @media only screen and (max-width: 992px) {
+      ${props}
+    }
   `;
-}
+};
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 20px;
-  ${mobile({padding:'40px 10px 10px 10px'})}
+  ${mobile({ padding: "40px 10px 10px 10px" })}
 `;
 const Title = styled.h1`
   text-align: center;
@@ -39,7 +39,7 @@ const TopButton = styled.button`
 const TopTexts = styled.span`
   display: flex;
   justify-content: center;
-  ${mobile({display:'none'})}
+  ${mobile({ display: "none" })}
 `;
 
 const Toptext = styled.div`
@@ -51,56 +51,65 @@ const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
-  ${mobile({flexDirection:'column'})}
+  ${mobile({ flexDirection: "column" })}
 `;
 const Info = styled.div`
   flex: 3;
+  display: flex;
 `;
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
-  ${mobile({flexDirection:'column'})}
+  ${mobile({ flexDirection: "column" })}
 `;
 const ProductDetails = styled.div`
-  flex: 2;
+  flex: 1;
   display: flex;
 `;
-const ProductCopy = styled.span``;
+const ProductCopy = styled.div``;
 const Image = styled.img`
   width: 200px;
-  ${mobile({marginBottom:'20px'})}
+  ${mobile({ marginBottom: "20px" })}
 `;
-const ProductName = styled.span``;
-const ProductID = styled.span``;
-const ProductHarakat = styled.span``;
-const PriceDetail = styled.div`
-  flex: 1;
-  align-items: center;
+const ProductName = styled.h1`
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 0 20px 0;
+`;
+const ProductComment = styled.p`
   display: flex;
   justify-content: center;
+  margin: 0px;
+`;
+const ProductHarakat = styled.div``;
+const PriceDetail = styled.div`
+  flex: 1;
+  align-items: flex-start;
+  display: flex;
   flex-direction: column;
 `;
 const Details = styled.div`
-  padding: 20px;
   display: flex;
+  flex: 2;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
+  padding-left: 30px;
 `;
 const ProductAmountContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  border: 1px solid white;
 `;
 const ProductAmount = styled.div`
   font-size: 20px;
-  margin: 5px;
-  ${mobile({margin:'5px 15px'})}
+  margin: 0 20px;
+  ${mobile({ margin: "5px 15px" })}
 `;
 const ProductPrice = styled.span`
   font-size: 30px;
   color: goldenrod;
-  ${mobile({marginBottom:'20px', marginLeft:'0'})}
+  ${mobile({ marginBottom: "20px", marginLeft: "0" })}
 `;
 const Hr = styled.div`
   background-color: #eee;
@@ -127,19 +136,51 @@ const SummaryItem = styled.div`
 `;
 const SummaryItemText = styled.span``;
 const SummaryItemPrice = styled.span``;
-const Button = styled.button`
-  width: 100%;
-  padding: 10px;
-  background-color: black;
-  color: white;
-  margin-top: 20px;
-  ${mobile({marginTop:'0'})}
+const ButtonCart = styled(Button)`
+  width: 120%;
+  ${mobile({ marginTop: "0" })}
 `;
-
+const ProductAddCart = styled.div`
+  margin-left: 30px;
+`;
+const WrapProductAmount = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 20px 0 0 0;
+`;
+const AddButton = styled(Add)`
+  border: 1px solid white;
+  padding: 10px 0;
+  cursor: pointer;
+`;
+const DelButton = styled(Remove)`
+  border: 1px solid white;
+  padding: 10px 0;
+  cursor: pointer;
+`;
 const ModalProduct = () => {
-  const {zoomBook} = React.useContext(CartContext)
+  const { zoomBook,onAdd} = React.useContext(CartContext);
+  const [cartNum,setCartNum] = React.useState(1);
+  const addCartNum = ()=>{
+    if(cartNum >0){
+    setCartNum(setCartNum=>setCartNum+1)
+  }else{
+    setCartNum(1)
+  }
+  };
+  const delCartNum = ()=>{
+    if(cartNum >1){
+    setCartNum(setCartNum=>setCartNum-1)
+  }else{
+    setCartNum(1)
+  }
+  };
+  const updateZoombook =()=>{
+    const newZoomBook = {...zoomBook,qty:cartNum};
+    onAdd(newZoomBook);
+  };
   return (
-    <Container>
+    <Container style={{backgroundColor:'#18150d'}}>
       <Wrapper>
         <Title>YOUR KITAB</Title>
         <Top>
@@ -154,47 +195,52 @@ const ModalProduct = () => {
           <Info>
             <Product>
               <ProductDetails>
-                <div style={{width:'200px'}}>
-                  <ReactImageMagnify {...{
-                    smallImage:{
-                      isFluidWidth:true,
-                      src:`${zoomBook.url}`
-                    },
-                    largeImage:{
-                      src:`${zoomBook.url}`,
-                      width: 600,
-                      height: 800
-                    }
-                  }}/>
+                <div style={{ width: "200px" }}>
+                  <ReactImageMagnify
+                    {...{
+                      smallImage: {
+                        isFluidWidth: true,
+                        src: `${zoomBook.url}`,
+                      },
+                      largeImage: {
+                        src: `${zoomBook.url}`,
+                        width: 600,
+                        height: 800,
+                      },
+                    }}
+                  />
                 </div>
-                <Details>
-                  <ProductName>
-                    <b>Product: </b>{zoomBook.title}
-                  </ProductName>
-                  <ProductID>
-                    <b>ID: </b>8943223994
-                  </ProductID>
-                  <ProductHarakat>
-                    <b>Harakat: </b>100%
-                  </ProductHarakat>
-                  <ProductCopy>
-                    <b>Copy: </b>Saudi{" "}
-                  </ProductCopy>
-                </Details>
-                
               </ProductDetails>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>2</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>$ {zoomBook.price}</ProductPrice>
-              </PriceDetail>
+              <Details>
+                <ProductName>{zoomBook.title}</ProductName>
+                <ProductComment>{zoomBook.comment}</ProductComment>
+                <Hr />
+                <PriceDetail>
+                  <ProductPrice>$ {zoomBook.price}</ProductPrice>
+                  <WrapProductAmount>
+                    <ProductAmountContainer>
+                      <AddButton onClick={addCartNum}/>
+                      <ProductAmount>{cartNum}</ProductAmount>
+                      <DelButton onClick={delCartNum}/>
+                    </ProductAmountContainer>
+                    <ProductAddCart>
+                      <ButtonCart onClick={updateZoombook} variant="contained" color="error">
+                        Add Cart
+                      </ButtonCart>
+                    </ProductAddCart>
+                  </WrapProductAmount>
+                </PriceDetail>
+                <Hr />
+                <ProductHarakat>
+                  <b>Harakat: </b>100%
+                </ProductHarakat>
+                <ProductCopy>
+                  <b>Copy: </b>Saudi{" "}
+                </ProductCopy>
+              </Details>
             </Product>
-            <Hr />
           </Info>
-          
+
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
             <SummaryItem>
@@ -213,13 +259,14 @@ const ModalProduct = () => {
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>$ 90</SummaryItemPrice>
             </SummaryItem>
-            <Button>CHECKOUT NOW</Button>
+            <ButtonCart variant="contained" color="error">
+              CHECKOUT NOW
+            </ButtonCart>
           </Summary>
-          
         </Bottom>
       </Wrapper>
     </Container>
-  )
-}
+  );
+};
 
-export default ModalProduct
+export default ModalProduct;

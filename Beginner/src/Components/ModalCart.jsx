@@ -51,7 +51,6 @@ export default function ModalCart() {
   const {
     handleClose,
     open,
-    handleOpen,
     onAdd,
     onRemove,
     onClear,
@@ -72,8 +71,12 @@ export default function ModalCart() {
       y:'0',
     },
   }
-  return (
-          
+  const onAddCart = (item)=>{
+    const newItem = {...item,qty:1}
+    console.log(newItem)
+    onAdd(newItem)
+  };
+  return (       
             <Modal
               open={open}
               onClose={handleClose}
@@ -87,17 +90,17 @@ export default function ModalCart() {
                   <ModalTitle>Cart Items</ModalTitle>
                   <ModalContent>
                     {cartLength === 0 && <div>Cart is Empty</div>}
-                    {cart.map((item) => (
+                    {cart.map((item)=>(
                       <Card>
                         <CardName>Book1</CardName>
                         <CardImgDiv>
                           <CardImg src={item.url} key={item.id} />
                         </CardImgDiv>
                         <CardButtonContainer>
-                          <IconButton onClick={() => onRemove(item)}>
+                          <IconButton onClick={()=>onRemove(item)}>
                             <RemoveIcon style={{ color: "red" }} />
                           </IconButton>
-                          <IconButton onClick={() => onAdd(item)}>
+                          <IconButton onClick={()=>onAddCart(item)}>
                             <AddIcon style={{ color: "green" }} />
                           </IconButton>
                         </CardButtonContainer>
@@ -105,7 +108,7 @@ export default function ModalCart() {
                           {item.qty} x ${item.price}
                         </CardCal>
                         <CardDelete>
-                          <IconButton onClick={() => onClear(item)}>
+                          <IconButton onClick={()=>onClear(item)}>
                             <DeleteForeverIcon />
                           </IconButton>
                         </CardDelete>

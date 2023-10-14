@@ -17,7 +17,7 @@ import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import BadgeCart from "./BadgeCart";
 import { CartContext } from "./Context";
 import ModalCart from "../Components/ModalCart";
-import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [extendNavbar, setExtendNavbar] = React.useState(false);
@@ -26,12 +26,15 @@ const Navbar = () => {
     <NavbarContainer extendNavbar={extendNavbar}>
       <NavbarInnerContainer>
         <LeftBrandLogo>
-          <a href="/" style={{ color: "white" }}>
-            <Logo  whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.9 }}>
-              <ImportContactsIcon style={{ fontSize: "50px" }}/>
+          <Link to={"/"}>
+            <Logo
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              style={{ color: "white" }}
+            >
+              <ImportContactsIcon style={{ fontSize: "50px" }} />
             </Logo>
-          </a>
+          </Link>
         </LeftBrandLogo>
         <LeftContainer>
           <NavbarLinkContainer>
@@ -45,8 +48,11 @@ const Navbar = () => {
           </NavbarLinkContainer>
         </LeftContainer>
         <RightContainer>
-          <Logo style={{ display: "flex", alignItems: "flex-end" }} whileHover={{ scale: 1.2 }}
-    whileTap={{ scale: 0.9 }}>
+          <Logo
+            style={{ display: "flex", alignItems: "flex-end" }}
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+          >
             <a onClick={handleOpen}>
               <BadgeCart />
             </a>
@@ -62,6 +68,7 @@ const Navbar = () => {
           <NavbarLinkExtend to="/about">Contact Us</NavbarLinkExtend>
         </NavbarExtendedContainer>
       )}
+
       <ModalCart />
     </NavbarContainer>
   );
