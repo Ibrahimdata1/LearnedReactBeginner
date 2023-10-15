@@ -9,11 +9,12 @@ import Student from "./Pages/Student";
 import VidPlayerData from "./Data/VidPlayerData";
 import Footer from "./Components/Footer";
 import Checkout from './Pages/Checkout'
+import BookData from './Data/BookData'
 
 const App = () => {
 //-------------CartFunction------------//
 const [cart,setCart] = React.useState([]);
-
+const [displayProducts,setDisplayProducts] = React.useState(BookData)
 const onAdd = (item) =>{
     const exist = cart.find((cart)=>cart.id === item.id);
     if(exist && item.qty > 1){
@@ -84,7 +85,7 @@ React.useEffect(()=>{
 },[]);
   return (
     <BrowserRouter>
-      <CartContext.Provider value={{onAdd,onRemove,cartLength,cart,setCart,onClear,open,setOpen,handleClose,handleOpen,changeVidUrl,urlVid,changeBook,zoomBook}}>
+      <CartContext.Provider value={{onAdd,onRemove,cartLength,cart,setCart,onClear,open,setOpen,handleClose,handleOpen,changeVidUrl,urlVid,changeBook,zoomBook,displayProducts,setDisplayProducts}}>
         <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

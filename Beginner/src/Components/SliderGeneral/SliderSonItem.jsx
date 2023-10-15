@@ -5,7 +5,7 @@ import CardCover from "@mui/joy/CardCover";
 import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
 import { CartContext } from '../../Components/Context';
-import {motion} from 'framer-motion'
+
 
 const SliderSonItem = ({item}) => {
   const {changeVidUrl} = React.useContext(CartContext)

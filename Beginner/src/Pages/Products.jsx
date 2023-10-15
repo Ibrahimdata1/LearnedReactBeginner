@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ProductBook from "../Components/Productcomponents/ProductBook";
 import SearchBar from "../Components/ProductComponents/SearchBar";
 import SideBar from '../Components/Product_Sidebar/SideBar'
-import BookData from '../Data/BookData'
+import { CartContext } from "../Components/Context";
 import {FilterContext} from "../Components/Context";
 
 const Products = () => {
@@ -13,7 +13,7 @@ const Products = () => {
   `;
   //-------Search Filter---------//
   const [searchProduct, setSearchProduct] = React.useState("");
-  const [displayProducts,setDisplayProducts] = React.useState(BookData)
+  const {displayProducts,setDisplayProducts} = React.useContext(CartContext)
 const searchHandler = (event)=>{
     setSearchProduct(event.target.value)
 }
@@ -34,7 +34,7 @@ const filterSearch = displayProducts.filter((item)=>{
 
 
   return (
-    <FilterContext.Provider value={{radioHandler,onRemoveProduct}}>
+    <FilterContext.Provider value={{radioHandler,onRemoveProduct,displayProducts}}>
       <div style={{backgroundColor:'#18150d'}}>
           <SearchBar searchHandler={searchHandler} />
           <ProductsContainer>
