@@ -6,11 +6,12 @@ import SideBar from '../Components/Product_Sidebar/SideBar'
 import { CartContext } from "../Components/Context";
 import {FilterContext} from "../Components/Context";
 
-const Products = () => {
-  const ProductsContainer = styled.div`
+const ProductsContainer = styled.div`
     display: flex;
     flex-direction: row;
   `;
+const Products = () => {
+  
   //-------Search Filter---------//
   const [searchProduct, setSearchProduct] = React.useState("");
   const {displayProducts,setDisplayProducts} = React.useContext(CartContext)
@@ -19,18 +20,28 @@ const searchHandler = (event)=>{
 }
 const radioHandler = (title) =>{
     if(title === 'All'){
-        setSearchProduct('')
-    }else {
-        setSearchProduct(title)
+      setSearchProduct('')
+    }else if(title === "$0-$50"){
+      setSearchProduct('Small')
+      console.log(searchProduct)
+    }else if(title === "$50-$100"){
+      setSearchProduct('Medium')
+      console.log(searchProduct)
     }
-}
+    else {
+      setSearchProduct(title)
+    }
+};
+React.useEffect(()=>{
+  setSearchProduct('')
+},[])
 const onRemoveProduct = (item)=>{
     const newProducts = displayProducts.filter((products)=>item.id !== products.id)
     setDisplayProducts(newProducts)
-}
+};
 const filterSearch = displayProducts.filter((item)=>{
-   return( item.title.toLowerCase().includes(searchProduct.toLowerCase()))
-})
+   return (item.title.toLowerCase().includes(searchProduct.toLowerCase()) || item.priceAmount.toLowerCase().includes(searchProduct.toLowerCase()))
+});
 
 
   return (
