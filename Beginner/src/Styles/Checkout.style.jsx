@@ -24,7 +24,7 @@ export const Top = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 80px 25px 10px 25px;
 `;
 export const TopButton = styled(Button)`
   padding: 10px;
@@ -49,6 +49,7 @@ export const DetailsContent = styled.div`
 `;
 export const Bottom = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 30px;
   ${mobile({ flexDirection: "column" })}
@@ -61,11 +62,13 @@ export const Product = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
-  ${mobile({ flexDirection: "column" })}
+  width: 100%;
+  ${mobile({ width:'100%' })}
 `;
 export const ProductDetails = styled.div`
   flex: 1;
   display: flex;
+  ${mobile({ flex:1,justifyContent:'center' })}
 `;
 export const ProductCopy = styled.div``;
 export const Image = styled.img`
@@ -79,7 +82,7 @@ export const ProductName = styled.h1`
 `;
 export const ProductComment = styled.p`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0px;
 `;
 export const ProductHarakat = styled.div``;
@@ -95,6 +98,7 @@ export const Details = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   padding-left: 30px;
+  ${mobile({ flex:1 })}
 `;
 export const ProductAmountContainer = styled.div`
   display: flex;
@@ -143,6 +147,7 @@ color: white;
 margin: 0 0 10px 0;
 &:hover{
   color: #ff5900;
+  transition: 0.3s;
 }
 `;
 export const RelatedItemPrice = styled.p`
@@ -177,6 +182,7 @@ export const RelatedItem = styled(Link)`
   justify-content: flex-start;
   margin-bottom: 20px;
   cursor: pointer;
+  padding: 10px;
 `;
 export const WrapProductAmount = styled.div`
   display: flex;

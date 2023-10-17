@@ -1,14 +1,46 @@
 import ReactImageMagnify from "react-image-magnify";
-import {Container,Wrapper,Title,Top,TopButton,TopTexts,Toptext,DetailsContent,Bottom,Side,Info,Product,ProductDetails,ProductCopy,Image,ProductName,ProductComment,ProductHarakat,PriceDetail,Details,ProductAmountContainer,ProductAmount,ProductPrice,RelatedTitle,Related,Hr,RelatedItemTitle,RelatedItemPrice,RelatedContainer,RelatedItemText,RelatedItemImg,ButtonCart,ProductAddCart,RelatedItem,WrapProductAmount,AddButton,DelButton} from '../Styles/Checkout.style'
+import {
+  Container,
+  Wrapper,
+  Title,
+  Top,
+  TopButton,
+  TopTexts,
+  Toptext,
+  DetailsContent,
+  Bottom,
+  Side,
+  Info,
+  Product,
+  ProductDetails,
+  ProductCopy,
+  Image,
+  ProductName,
+  ProductComment,
+  ProductHarakat,
+  PriceDetail,
+  Details,
+  ProductAmountContainer,
+  ProductAmount,
+  ProductPrice,
+  RelatedTitle,
+  Related,
+  Hr,
+  ButtonCart,
+  ProductAddCart,
+  WrapProductAmount,
+  AddButton,
+  DelButton,
+} from "../Styles/Checkout.style";
 import { CartContext } from "../Components/Context";
 import React from "react";
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import { Link } from "react-router-dom";
-
+import RelatedSideItem from "../Components/RelatedSideItem";
 
 const Checkout = () => {
-  const { zoomBook, onAdd ,changeBook} = React.useContext(CartContext);
+  const { zoomBook, onAdd, handleOpen } = React.useContext(CartContext);
   const [cartNum, setCartNum] = React.useState(1);
   const addCartNum = () => {
     if (cartNum > 0) {
@@ -29,28 +61,27 @@ const Checkout = () => {
     onAdd(newZoomBook);
   };
   const { displayProducts } = React.useContext(CartContext);
-  const [isHover,setIsHover] = React.useState(false)
+
   return (
     <Container style={{ backgroundColor: "#18150d" }}>
       <Wrapper>
-        <Title>YOUR KITAB</Title>
         <Top>
-          <Link to={'/products'}>
+          <Link to={"/products"}>
             <TopButton variant="contained" color="primary">
               Continue Shopping
             </TopButton>
           </Link>
-          <TopTexts>
-            <Toptext>Shooping Bag (2)</Toptext>
-            <Toptext>Your wishlist (0)</Toptext>
-          </TopTexts>
-          <TopButton typeof="filled">Checkout Now</TopButton>
+          <a onClick={handleOpen}>
+            <TopButton variant="contained" color="success">
+              Checkout Now
+            </TopButton>
+          </a>
         </Top>
         <Bottom>
           <Info>
             <Product>
               <ProductDetails>
-                <div style={{ width: "250px",zIndex:'10'}}>
+                <div style={{ width: "250px", zIndex: "10" }}>
                   <ReactImageMagnify
                     {...{
                       smallImage: {
@@ -80,20 +111,19 @@ const Checkout = () => {
                         <DelButton onClick={delCartNum} />
                       </ProductAmountContainer>
                       <ProductAddCart>
-                      <ButtonCart
+                        <ButtonCart
                           onClick={updateZoombook}
                           variant="contained"
                           color="error"
                           size="large"
                         >
-                          <ShoppingCartCheckoutIcon style={{marginRight:'5px'}}/>
+                          <ShoppingCartCheckoutIcon
+                            style={{ marginRight: "5px" }}
+                          />
                           Add Cart
-                      </ButtonCart>
-                  
+                        </ButtonCart>
                       </ProductAddCart>
-                  
                     </WrapProductAmount>
-                  
                   </PriceDetail>
                   <Hr />
                   <ProductHarakat>
@@ -103,27 +133,19 @@ const Checkout = () => {
                     <b>Copy: </b>Saudi{" "}
                   </ProductCopy>
                 </DetailsContent>
-                
               </Details>
             </Product>
           </Info>
 
           <Side>
-            <RelatedTitle><ChevronLeftIcon style={{marginRight:'10px'}}/>RELATED PRODUCTS</RelatedTitle>
+            <RelatedTitle>
+              <ChevronLeftIcon style={{ marginRight: "10px" }} />
+              RELATED PRODUCTS
+            </RelatedTitle>
             <Related>
-                {displayProducts.map((item) => (
-                  <RelatedContainer>
-                    <RelatedItem  onClick={()=>changeBook(item)}  className={`${
-                    isHover ? "bgColorCheckout_Side" : ""
-                  }`}  onMouseOver={()=>setIsHover(true)} onMouseOut={()=>setIsHover(false)}>
-                      <RelatedItemImg src={item.url} key={item.id} />
-                      <RelatedItemText>
-                        <RelatedItemTitle>{item.title}</RelatedItemTitle>
-                        <RelatedItemPrice>${item.price}</RelatedItemPrice>
-                      </RelatedItemText>
-                    </RelatedItem>
-                  </RelatedContainer>
-                ))}
+              {displayProducts.map((item) => (
+                <RelatedSideItem item={item} key={item.id} />
+              ))}
             </Related>
           </Side>
         </Bottom>
