@@ -31,6 +31,8 @@ import {
   WrapProductAmount,
   AddButton,
   DelButton,
+  RelatedWrapExtension,
+  RelatedExtentionTitle
 } from "../Styles/Checkout.style";
 import { CartContext } from "../Components/Context";
 import React from "react";
@@ -38,6 +40,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import { Link } from "react-router-dom";
 import RelatedSideItem from "../Components/RelatedSideItem";
+import RelatedItemExtension from "../Components/RelatedItemExtension";
 
 const Checkout = () => {
   const { zoomBook, onAdd, handleOpen } = React.useContext(CartContext);
@@ -60,8 +63,7 @@ const Checkout = () => {
     const newZoomBook = { ...zoomBook, qty: cartNum };
     onAdd(newZoomBook);
   };
-  const { displayProducts } = React.useContext(CartContext);
-
+  const { displayProducts } = React.useContext(CartContext);  
   return (
     <Container style={{ backgroundColor: "#18150d" }}>
       <Wrapper>
@@ -136,7 +138,7 @@ const Checkout = () => {
               </Details>
             </Product>
           </Info>
-
+          
           <Side>
             <RelatedTitle>
               <ChevronLeftIcon style={{ marginRight: "10px" }} />
@@ -150,6 +152,12 @@ const Checkout = () => {
           </Side>
         </Bottom>
       </Wrapper>
+      <RelatedExtentionTitle>Related Items</RelatedExtentionTitle>
+      <RelatedWrapExtension>
+        {displayProducts.map((item)=>(
+          <RelatedItemExtension item={item} key={item.id}/>
+        ))}
+      </RelatedWrapExtension>
     </Container>
   );
 };

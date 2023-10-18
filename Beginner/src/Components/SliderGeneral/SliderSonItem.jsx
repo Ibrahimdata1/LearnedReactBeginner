@@ -21,7 +21,7 @@ const SliderSonItem = ({item}) => {
       <Card component="li" sx={{ minWidth: 200, flexGrow: 1 }}>
         
           <CardCover>
-            <img src={item.url} alt=""/>
+            <img src={item.url} alt="" style={{objectFit:'cover'}}/>
           </CardCover>
         
         <CardContent>

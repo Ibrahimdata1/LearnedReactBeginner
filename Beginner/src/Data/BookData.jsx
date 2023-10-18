@@ -63,5 +63,13 @@ const BookData = [
         comment:'This is a very beneficial book for student of knowledge must buy',
         priceAmount:'Medium'
     },
+    {
+        id:9,
+        url:"/Images/book4.jpg",
+        title:'Aqeedah',
+        price:'89.23',
+        comment:'This is a very beneficial book for student of knowledge must buy',
+        priceAmount:'Medium'
+    },
 ];
 export default BookData

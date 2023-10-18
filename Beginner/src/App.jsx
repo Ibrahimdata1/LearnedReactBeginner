@@ -81,7 +81,6 @@ React.useEffect(()=>{
   setCart(
     localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')):[]
   );
-  console.log(localStorage.getItem('cart'))
 },[]);
   return (
     <BrowserRouter>

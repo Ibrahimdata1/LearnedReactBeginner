@@ -14,9 +14,10 @@
   -webkit-text-size-adjust: 100%;
 }
 
-body {
+html,body {
   margin: 0;
   padding: 0;
   overflow-x: hidden !important;
   box-sizing: border-box;
+  width: 100%;
 }

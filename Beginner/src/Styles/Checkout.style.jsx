@@ -11,7 +11,15 @@ export const mobile = (props) => {
     }
   `;
 };
-export const Container = styled.div``;
+export const desktop = (props) => {
+  return css`
+    @media only screen and (min-width: 993px) {
+      ${props}
+    }
+  `;
+};
+export const Container = styled.div`
+`;
 export const Wrapper = styled.div`
   padding: 20px;
   ${mobile({ padding: "40px 10px 10px 10px" })}
@@ -153,20 +161,28 @@ margin: 0 0 10px 0;
 export const RelatedItemPrice = styled.p`
 margin: 0 0 10px 0;
 color: #ff0000e0;
+${mobile({ textAlign:'center'})}
 `;
+export const RelatedItemComment = styled.p`
+  ${desktop({ display:'none'})}
+`
 export const RelatedContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  ${mobile({ display:'flex',flexDirection:'row',alignItems:'flex-start'})}
 `;
 export const RelatedItemText = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 20px;
+  ${mobile({ marginLeft:'0'})}
 `;
 export const RelatedItemImg = styled.img`
   width: 50px;
   height: 80px;
+  ${mobile({ width:'80px',height:'110px',marginBottom:'10px' })}
 `;
 export const ButtonCart = styled(Button)`
   width: 100%;
@@ -183,6 +199,7 @@ export const RelatedItem = styled(Link)`
   margin-bottom: 20px;
   cursor: pointer;
   padding: 10px;
+  ${mobile({ width:'30vh',flexDirection:'column' })}
 `;
 export const WrapProductAmount = styled.div`
   display: flex;
@@ -201,4 +218,32 @@ export const DelButton = styled(Remove)`
 `;
 export const Side = styled.div`
   flex: 1;
+  ${mobile({ display:'none'})}
 `;
+export const RelatedItemMobile = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  ${mobile({ width:'50%'})}
+`
+export const RelatedItemMobileImg = styled.img`
+  width: 70px;
+  height: 100px;
+`;
+export const RelatedItemMobileContent = styled.div`
+  
+`
+export const RelatedWrapExtension = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  ${desktop({ display:'none'})}
+`
+export const RelatedExtentionTitle = styled.h1`
+  font-weight: 400;
+  border-bottom: 2px solid #f4f5f6;
+  color: #ff6b00ff;
+  margin-bottom: 20px;
+  padding-left: 4rem;
+  ${desktop({ display:'none'})}
+`

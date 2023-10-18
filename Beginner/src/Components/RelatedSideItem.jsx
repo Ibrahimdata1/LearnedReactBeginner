@@ -1,6 +1,6 @@
 import React from "react";
 import { CartContext } from "../Components/Context";
-import {RelatedContainer,RelatedItemImg,RelatedItemText,RelatedItemTitle,RelatedItemPrice,RelatedItem} from '../Styles/Checkout.style'
+import {RelatedContainer,RelatedItemImg,RelatedItemText,RelatedItemTitle,RelatedItemPrice,RelatedItem,RelatedItemComment} from '../Styles/Checkout.style'
 
 const RelatedSideItem = ({item}) => {
     const [isHover,setIsHover] = React.useState(false)
@@ -19,6 +19,7 @@ const RelatedSideItem = ({item}) => {
           <RelatedItemPrice>${item.price}</RelatedItemPrice>
         </RelatedItemText>
       </RelatedItem>
+      <RelatedItemComment>${item.comment}</RelatedItemComment>
     </RelatedContainer>
   );
 };
