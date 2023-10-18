@@ -4,7 +4,7 @@ import { Add, Remove } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export const mobile = (props) => {
+export const ipad = (props) => {
   return css`
     @media only screen and (max-width: 992px) {
       ${props}
@@ -18,11 +18,18 @@ export const desktop = (props) => {
     }
   `;
 };
+export const mobile = (props) => {
+  return css`
+    @media only screen and (max-width: 420px) {
+      ${props}
+    }
+  `;
+};
 export const Container = styled.div`
 `;
 export const Wrapper = styled.div`
   padding: 20px;
-  ${mobile({ padding: "40px 10px 10px 10px" })}
+  ${ipad({ padding: "40px 10px 10px 10px" })}
 `;
 export const Title = styled.h1`
   text-align: center;
@@ -42,7 +49,7 @@ export const TopButton = styled(Button)`
 export const TopTexts = styled.span`
   display: flex;
   justify-content: center;
-  ${mobile({ display: "none" })}
+  ${ipad({ display: "none" })}
 `;
 
 export const Toptext = styled.div`
@@ -60,7 +67,7 @@ export const Bottom = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 30px;
-  ${mobile({ flexDirection: "column" })}
+  ${ipad({ flexDirection: "column" })}
 `;
 export const Info = styled.div`
   flex: 3;
@@ -71,17 +78,19 @@ export const Product = styled.div`
   justify-content: space-between;
   margin: 20px 0;
   width: 100%;
-  ${mobile({ width:'100%' })}
+  ${ipad({ width:'100%' })}
+  ${mobile({ flexDirection:'column' })}
 `;
 export const ProductDetails = styled.div`
   flex: 1;
   display: flex;
-  ${mobile({ flex:1,justifyContent:'center' })}
+  ${ipad({ flex:1,justifyContent:'center' })}
+  ${mobile({ marginBottom:'30px' })}
 `;
 export const ProductCopy = styled.div``;
 export const Image = styled.img`
   width: 200px;
-  ${mobile({ marginBottom: "20px" })}
+  ${ipad({ marginBottom: "20px" })}
 `;
 export const ProductName = styled.h1`
   display: flex;
@@ -106,7 +115,7 @@ export const Details = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   padding-left: 30px;
-  ${mobile({ flex:1 })}
+  ${ipad({ flex:1 })}
 `;
 export const ProductAmountContainer = styled.div`
   display: flex;
@@ -116,12 +125,12 @@ export const ProductAmountContainer = styled.div`
 export const ProductAmount = styled.div`
   font-size: 20px;
   margin: 0 20px;
-  ${mobile({ margin: "5px 15px" })}
+  ${ipad({ margin: "5px 15px" })}
 `;
 export const ProductPrice = styled.span`
   font-size: 30px;
   color: goldenrod;
-  ${mobile({ marginBottom: "20px", marginLeft: "0" })}
+  ${ipad({ marginBottom: "20px", marginLeft: "0" })}
 `;
 export const Hr = styled.div`
   background-color: #eee;
@@ -161,7 +170,7 @@ margin: 0 0 10px 0;
 export const RelatedItemPrice = styled.p`
 margin: 0 0 10px 0;
 color: #ff0000e0;
-${mobile({ textAlign:'center'})}
+${ipad({ textAlign:'center'})}
 `;
 export const RelatedItemComment = styled.p`
   ${desktop({ display:'none'})}
@@ -170,23 +179,23 @@ export const RelatedContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  ${mobile({ display:'flex',flexDirection:'row',alignItems:'flex-start'})}
+  ${ipad({ display:'flex',flexDirection:'row',alignItems:'flex-start'})}
 `;
 export const RelatedItemText = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 20px;
-  ${mobile({ marginLeft:'0'})}
+  ${ipad({ marginLeft:'0'})}
 `;
 export const RelatedItemImg = styled.img`
   width: 50px;
   height: 80px;
-  ${mobile({ width:'80px',height:'110px',marginBottom:'10px' })}
+  ${ipad({ width:'80px',height:'110px',marginBottom:'10px' })}
 `;
 export const ButtonCart = styled(Button)`
   width: 100%;
-  ${mobile({ marginTop: "0" })}
+  ${ipad({ marginTop: "0" })}
 `;
 export const ProductAddCart = styled.div`
   margin-left: 30px;
@@ -199,7 +208,8 @@ export const RelatedItem = styled(Link)`
   margin-bottom: 20px;
   cursor: pointer;
   padding: 10px;
-  ${mobile({ width:'30vh',flexDirection:'column' })}
+  ${ipad({ width:'15vh',flexDirection:'column' })}
+  ${mobile({ marginBottom:'0' })}
 `;
 export const WrapProductAmount = styled.div`
   display: flex;
@@ -218,13 +228,13 @@ export const DelButton = styled(Remove)`
 `;
 export const Side = styled.div`
   flex: 1;
-  ${mobile({ display:'none'})}
+  ${ipad({ display:'none'})}
 `;
 export const RelatedItemMobile = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  ${mobile({ width:'50%'})}
+  ${ipad({ width:'50%'})}
 `
 export const RelatedItemMobileImg = styled.img`
   width: 70px;
@@ -237,7 +247,10 @@ export const RelatedWrapExtension = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
   ${desktop({ display:'none'})}
+  ${mobile({ width:'100vh',flexDirection:'column' })}
 `
 export const RelatedExtentionTitle = styled.h1`
   font-weight: 400;

@@ -52,7 +52,7 @@ export const NavbarLink = styled(Link)`
     filter: brightness(80%);
   }
   
-  @media (max-width: 760px) {
+  @media (max-width: 925px) {
     display: none;
   }
 `;
@@ -66,7 +66,7 @@ export const Logo = styled(motion.div)`
   margin: 10px 10px 10px 60px;
   max-width: 180px;
   height: auto;
-  @media (max-width: 760px) {
+  @media (max-width: 925px) {
     display: none;
   }
 `;
@@ -81,7 +81,7 @@ export const OpenLinksButton = styled.button`
   font-size: 45px;
   cursor: pointer;
 
-  @media (min-width: 760px) {
+  @media (min-width: 925px) {
     display: none;
   }
 `;
