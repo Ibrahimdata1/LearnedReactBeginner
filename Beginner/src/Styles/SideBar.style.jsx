@@ -1,6 +1,35 @@
 import styled from "styled-components";
+import {css} from 'styled-components'
+import {motion} from 'framer-motion'
 
-export const SideBarContainer = styled.div`
+export const ipad = (props) => {
+  return css`
+    @media only screen and (max-width: 992px) {
+      ${props}
+    }
+  `;
+};
+export const desktop = (props) => {
+  return css`
+    @media only screen and (min-width: 993px) {
+      ${props}
+    }
+  `;
+};
+export const mobile = (props) => {
+  return css`
+    @media only screen and (max-width: 420px) {
+      ${props}
+    }
+  `;
+};
+export const LogoMobile = styled.div`
+  margin-left: 20px;
+  margin-top: 20px;
+  background: transparent;
+  ${desktop({ display:'none'})}
+`
+export const SideBarContainer = styled(motion.div)`
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -9,11 +38,11 @@ export const SideBarContainer = styled.div`
   color: white;
   flex: 1;
   padding-bottom: 1.5rem;
+  ${ipad({ display: "none" })}
 `;
 export const LogoContainer = styled.div`
-  margin-bottom: 4rem;
-  margin-top: 1.3rem;
-
+  margin-left: 20px;
+  margin-top: 20px;
   @media (max-width: 1600px) {
     margin-bottom: 2rem;
   }

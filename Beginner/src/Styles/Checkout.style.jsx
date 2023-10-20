@@ -44,6 +44,7 @@ export const Top = styled.div`
 export const TopButton = styled(Button)`
   padding: 10px;
   cursor: pointer;
+  ${mobile({ width:'40vw'})}
 `;
 
 export const TopTexts = styled.span`
@@ -259,4 +260,5 @@ export const RelatedExtentionTitle = styled.h1`
   margin-bottom: 20px;
   padding-left: 4rem;
   ${desktop({ display:'none'})}
+  ${mobile({ display:'flex',justifyContent:'center',paddingLeft:'0' })}
 `

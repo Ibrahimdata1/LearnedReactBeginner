@@ -1,6 +1,21 @@
 import styled from "styled-components";
 import {motion} from 'framer-motion'
+import {css} from 'styled-components'
 
+export const mobile = (props) => {
+  return css`
+    @media only screen and (max-width: 420px) {
+      ${props}
+    }
+  `;
+};
+export const ipad = (props) => {
+  return css`
+    @media only screen and (max-width: 992px) {
+      ${props}
+    }
+  `;
+};
 export const SliderMomContent = styled.div`
   width: 100%;
   margin: 0 auto;
@@ -14,6 +29,7 @@ export const Title = styled.h1`
   color: #ff6b00ff;
   margin-bottom: 15px;
   padding-left: 4rem;
+  ${mobile({ display:'flex',justifyContent:'center',paddingLeft:'0'})}
 `;
 
 export const WrapMomSlide = styled.div``;

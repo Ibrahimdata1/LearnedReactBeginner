@@ -46,6 +46,8 @@ const style = {
   p: 4,
   borderRadius: "5px",
 };
+const resolution = window.innerWidth;
+const isResolution = resolution <993;
 
 export default function ModalCart() {
   const {
@@ -76,6 +78,12 @@ export default function ModalCart() {
     console.log(newItem)
     onAdd(newItem)
   };
+  const [isRes,setIsRes] = React.useState(false)
+React.useEffect(()=>{
+  if(isResolution){
+    setIsRes(true);
+  }
+},[])
   return (       
             <Modal
               open={open}
@@ -85,64 +93,64 @@ export default function ModalCart() {
               component={motion.div}
               variants={modalMotion} initial='hidden' animate='visible'
             >
-              <Box sx={style} style={{ padding: "0 30px",backgroundColor:'#18150d' }}>
-                <ModalContainer>
-                  <ModalTitle>Cart Items</ModalTitle>
-                  <ModalContent>
-                    {cartLength === 0 && <div>Cart is Empty</div>}
-                    {cart.map((item)=>(
-                      <Card>
-                        <CardName>Book1</CardName>
-                        <CardImgDiv>
-                          <CardImg src={item.url} key={item.id} />
-                        </CardImgDiv>
-                        <CardButtonContainer>
-                          <IconButton onClick={()=>onRemove(item)}>
-                            <RemoveIcon style={{ color: "red" }} />
-                          </IconButton>
-                          <IconButton onClick={()=>onAddCart(item)}>
-                            <AddIcon style={{ color: "green" }} />
-                          </IconButton>
-                        </CardButtonContainer>
-                        <CardCal>
-                          {item.qty} x ${item.price}
-                        </CardCal>
-                        <CardDelete>
-                          <IconButton onClick={()=>onClear(item)}>
-                            <DeleteForeverIcon />
-                          </IconButton>
-                        </CardDelete>
-                      </Card>
-                    ))}
-                  </ModalContent>
-                  {cartLength !== 0 && (
-                    <SecondModalContainer>
-                      <Line style={{color:'black'}}/>
-                      <ItemPriceContainer>
-                        <ItemPriceTitle>Items Price</ItemPriceTitle>
-                        <ItemPriceResult>${itemsPrice.toFixed(2)}</ItemPriceResult>
-                      </ItemPriceContainer>
-                      <ShoppingPriceContainer>
-                        <ShoppingPriceTitle>Shipping Price</ShoppingPriceTitle>
-                        <ShoppingPriceResult>${shippingPrice}</ShoppingPriceResult>
-                      </ShoppingPriceContainer>
-                      <TotalPriceContainer>
-                        <TotalPriceTitle>Total Price</TotalPriceTitle>
-                        <TotalPriceResult>${totalPrice.toFixed(2)}</TotalPriceResult>
-                      </TotalPriceContainer>
-                      <ButtonCheckout>
-                        <Button
-                          style={{ width: "90%" }}
-                          onClick={() => alert("Implement Checkout!")}
-                          variant="contained" color="success"
-                        >
-                          Checkout
-                        </Button>
-                      </ButtonCheckout>
-                    </SecondModalContainer>
-                  )}
-                </ModalContainer>
-              </Box>
+                  <Box sx={style} style={isRes ?{ padding: "0 30px",backgroundColor:'#18150d',width:'80%'}:{padding: "0 30px",backgroundColor:'#18150d'}}>
+                  <ModalContainer>
+                    <ModalTitle>Cart Items</ModalTitle>
+                    <ModalContent>
+                      {cartLength === 0 && <div>Cart is Empty</div>}
+                      {cart.map((item)=>(
+                        <Card>
+                          <CardName>Book1</CardName>
+                          <CardImgDiv>
+                            <CardImg src={item.url} key={item.id} />
+                          </CardImgDiv>
+                          <CardButtonContainer>
+                            <IconButton onClick={()=>onRemove(item)}>
+                              <RemoveIcon style={{ color: "red" }} />
+                            </IconButton>
+                            <IconButton onClick={()=>onAddCart(item)}>
+                              <AddIcon style={{ color: "green" }} />
+                            </IconButton>
+                          </CardButtonContainer>
+                          <CardCal>
+                            {item.qty} x ${item.price}
+                          </CardCal>
+                          <CardDelete>
+                            <IconButton onClick={()=>onClear(item)}>
+                              <DeleteForeverIcon />
+                            </IconButton>
+                          </CardDelete>
+                        </Card>
+                      ))}
+                    </ModalContent>
+                    {cartLength !== 0 && (
+                      <SecondModalContainer>
+                        <Line style={{color:'black'}}/>
+                        <ItemPriceContainer>
+                          <ItemPriceTitle>Items Price</ItemPriceTitle>
+                          <ItemPriceResult>${itemsPrice.toFixed(2)}</ItemPriceResult>
+                        </ItemPriceContainer>
+                        <ShoppingPriceContainer>
+                          <ShoppingPriceTitle>Shipping Price</ShoppingPriceTitle>
+                          <ShoppingPriceResult>${shippingPrice}</ShoppingPriceResult>
+                        </ShoppingPriceContainer>
+                        <TotalPriceContainer>
+                          <TotalPriceTitle>Total Price</TotalPriceTitle>
+                          <TotalPriceResult>${totalPrice.toFixed(2)}</TotalPriceResult>
+                        </TotalPriceContainer>
+                        <ButtonCheckout>
+                          <Button
+                            style={{ width: "90%" }}
+                            onClick={() => alert("Implement Checkout!")}
+                            variant="contained" color="success"
+                          >
+                            Checkout
+                          </Button>
+                        </ButtonCheckout>
+                      </SecondModalContainer>
+                    )}
+                  </ModalContainer>
+                </Box>
             </Modal>
 
   );

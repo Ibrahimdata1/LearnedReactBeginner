@@ -6,7 +6,8 @@ import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
 import { CartContext } from '../../Components/Context';
 
-
+const resolution = window.innerWidth;
+const isMobile = resolution <= 420;
 const SliderSonItem = ({item}) => {
   const {changeVidUrl} = React.useContext(CartContext)
   const changeVidUrlFn = () =>{
@@ -15,10 +16,10 @@ const SliderSonItem = ({item}) => {
  
   return (
     <Box
-      sx={{ display: "flex", gap: 2, flexWrap: "wrap", p: 1, m: 0 }}
+      sx={{ display: "flex", gap: 2, flexWrap: "wrap", p: 1, m: 0 ,justifyContent:'center'}}
       className="BoxEffect" onClick={changeVidUrlFn}
     >
-      <Card component="li" sx={{ minWidth: 200, flexGrow: 1 }}>
+      <Card component="li" sx={isMobile ? { minWidth: 200, flexGrow: 1,maxHeight:'20vh',maxWidth:'60vw'}:{ minWidth: 200, flexGrow: 1}}>
         
           <CardCover>
             <img src={item.url} alt="" style={{objectFit:'cover'}}/>

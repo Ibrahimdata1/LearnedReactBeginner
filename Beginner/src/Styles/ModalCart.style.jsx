@@ -1,5 +1,20 @@
 import styled from "styled-components";
+import {css} from 'styled-components'
 
+export const ipad = (props) => {
+  return css`
+    @media only screen and (max-width: 992px) {
+      ${props}
+    }
+  `;
+};
+export const mobile = (props) => {
+  return css`
+    @media only screen and (max-width: 420px) {
+      ${props}
+    }
+  `;
+};
 export const ModalContainer = styled.aside`
   display: flex;
   flex-direction: column;
@@ -7,6 +22,7 @@ export const ModalContainer = styled.aside`
   height: 95vh;
   justify-content: flex-start;
   color: #18150d;
+  ${mobile({ height:'80vh',width:'80vw'})}
 `;
 export const ModalTitle = styled.h2`
   margin-bottom: 25px;

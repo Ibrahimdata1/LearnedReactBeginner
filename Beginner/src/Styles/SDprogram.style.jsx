@@ -1,6 +1,20 @@
 import styled from "styled-components";
+import {css} from 'styled-components'
 
-
+export const mobile = (props) => {
+    return css`
+      @media only screen and (max-width: 420px) {
+        ${props}
+      }
+    `;
+  };
+export const ipad = (props) => {
+    return css`
+      @media only screen and (max-width: 992px) {
+        ${props}
+      }
+    `;
+  };
 export const SDprogramMomContent = styled.div`
     margin: 0 auto;
     padding: 0.8rem 0;
@@ -72,4 +86,14 @@ export const SDTitle = styled.h5`
 `
 export const SDplaylistContainer = styled.div`
 position: relative;
+`
+export const BackgroundContainer = styled.div`
+    display: flex;
+    margin-top: 30px;
+    height: 80vh;
+    /* background-color: black; */
+    background: url('/Images/BannerSifa.jpg')center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    ${mobile({ height:'20vh',marginTop:'80px',marginBottom:'10px'})}
 `

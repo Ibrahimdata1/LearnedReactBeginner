@@ -6,6 +6,7 @@ import SideBar from '../Components/Product_Sidebar/SideBar'
 import { CartContext } from "../Components/Context";
 import {FilterContext} from "../Components/Context";
 
+
 const ProductsContainer = styled.div`
     display: flex;
     flex-direction: row;

@@ -1,12 +1,35 @@
 import styled from "styled-components";
 import { Button } from '@mui/material';
+import {css} from 'styled-components'
 
+const ipad = (props) => {
+  return css`
+    @media only screen and (max-width: 992px) {
+      ${props}
+    }
+  `;
+};
+const desktop = (props) => {
+  return css`
+    @media only screen and (min-width: 993px) {
+      ${props}
+    }
+  `;
+};
+const mobile = (props) => {
+  return css`
+    @media only screen and (max-width: 420px) {
+      ${props}
+    }
+  `;
+};
 export const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 2rem 0 0 0;
   justify-content: center;
   flex: 4;
+  ${ipad({ justifyContent:'space-around' })}
 `;
 export const CardContent = styled.div`
   margin: 15px 15px;
