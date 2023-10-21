@@ -4,14 +4,14 @@ import { css } from "styled-components";
 
 const ipad = (props) => {
   return css`
-    @media only screen and (max-width: 992px) {
+    @media only screen and (max-width: 1100px) {
       ${props}
     }
   `;
 };
 const desktop = (props) => {
   return css`
-    @media only screen and (min-width: 993px) {
+    @media only screen and (min-width: 1100px) {
       ${props}
     }
   `;
@@ -23,13 +23,20 @@ const mobile = (props) => {
     }
   `;
 };
+const mobileBig = (props) => {
+  return css`
+    @media only screen and (max-width: 600px) {
+      ${props}
+    }
+  `;
+};
 export const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 2rem 0 0 0;
   justify-content: center;
   flex: 4;
-  ${ipad({ justifyContent: "space-around" })};
+  ${ipad({ justifyContent: "space-around"})};
 `;
 export const CardContent = styled.div`
   margin: 15px 15px;
@@ -37,8 +44,10 @@ export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30%;
-  ${mobile({width:'100%',marginRight:'50px'})};
+  width: 20%;
+  ${mobile({width:'100%'})};
+  ${mobileBig({width:'40%'})};
+  ${ipad({ margin:'0 20px',marginBottom:'20px' })};
 `;
 export const CardIMG = styled.img`
   max-width: 350px;
@@ -55,7 +64,8 @@ export const CardDetails = styled.div`
   padding: 10px;
   border-radius: 5px;
   ${ipad({ width: "30vw" })}
-  ${mobile({ width: "100%" })}
+  ${mobileBig({width:'40vw'})};
+  ${mobile({ width: "60vw" })}
 `;
 export const CardTitle = styled.h3`
   margin-bottom: 0.5rem;
@@ -69,9 +79,16 @@ export const CardComment = styled.div`
   text-align: center;
   margin-bottom: 0.5rem;
 `;
+export const ButtonDesktop = styled.div`
+  ${ipad({ display:'none' })}
+`
+export const ButtonIpad = styled.div`
+  ${desktop({ display:'none' })};
+`
 export const ButtonItem = styled(Button)`
   width: 100%;
   cursor: pointer;
-  ${ipad({ width: "30vw" })}
-  ${mobile({ width:'60vw' })};
+  ${ipad({ width: "18vw"})}
+  ${mobileBig({width:'30vw'})};
+  ${mobile({ width:'50vw' })};
 `;

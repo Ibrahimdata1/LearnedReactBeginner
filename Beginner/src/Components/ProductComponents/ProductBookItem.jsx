@@ -5,6 +5,8 @@ import {
   CardPrice,
   CardTitle,
   CardContent,
+  ButtonIpad,
+  ButtonDesktop
 } from "../../Styles/ProductBook.style";
 import { ButtonItem } from "../../Styles/ProductBook.style";
 import { CartContext } from "../Context";
@@ -27,14 +29,26 @@ const ProductBookItem = ({ item }) => {
         <CardTitle>{item.title}</CardTitle>
         <CardComment>{item.comment}</CardComment>
         <CardPrice>${item.price}</CardPrice>
-        <ButtonItem
-          variant="contained"
-          color="error"
-          onClick={() => onAdd(item)}
-        >
-          <ShoppingCartCheckoutOutlinedIcon style={{ marginRight: "10px" }} />
-          ADD TO CART
-        </ButtonItem>
+        <ButtonDesktop>
+          <ButtonItem
+            variant="contained"
+            color="error"
+            onClick={() => onAdd(item)}
+          >
+            <ShoppingCartCheckoutOutlinedIcon style={{ marginRight: "10px" }} />
+            ADD TO CART
+          </ButtonItem>
+        </ButtonDesktop>
+        <ButtonIpad>
+          <ButtonItem
+            variant="contained"
+            color="error"
+            onClick={() => onAdd(item)}
+          >
+            <ShoppingCartCheckoutOutlinedIcon style={{ marginRight: "10px" }} />
+            ADD
+          </ButtonItem>
+        </ButtonIpad>
       </CardDetails>
     </CardContent>
   );
