@@ -7,29 +7,36 @@ import {
   CardContent,
 } from "../../Styles/ProductBook.style";
 import { ButtonItem } from "../../Styles/ProductBook.style";
-import {CartContext} from "../Context";
+import { CartContext } from "../Context";
 import React from "react";
-import ShoppingCartCheckoutOutlinedIcon from '@mui/icons-material/ShoppingCartCheckoutOutlined';
+import ShoppingCartCheckoutOutlinedIcon from "@mui/icons-material/ShoppingCartCheckoutOutlined";
 import { Link } from "react-router-dom";
 
-const ProductBookItem = ({item}) => {
-    const {onAdd,changeBook} = React.useContext(CartContext)
-    const [isHover,setIsHover] = React.useState(false)
+const ProductBookItem = ({ item }) => {
+  const { onAdd, changeBook } = React.useContext(CartContext);
+  const [isHover, setIsHover] = React.useState(false);
   return (
-      <CardContent  onMouseOver={()=>setIsHover(true)} onMouseOut={()=>setIsHover(false)}>
-        <Link to={'/checkout'}>
-        <CardIMG src={item.url} onClick={()=>changeBook(item)}/>
-        </Link>
-        <CardDetails className={`${
-            isHover ? "bgColor" : ""
-          }`}>
-          <CardTitle>{item.title}</CardTitle>
-          <CardComment>{item.comment}</CardComment>
-          <CardPrice>${item.price}</CardPrice>
-          <ButtonItem variant="contained" color="error" onClick={()=>onAdd(item)}><ShoppingCartCheckoutOutlinedIcon style={{marginRight:'10px'}}/>ADD TO CART</ButtonItem>
-        </CardDetails>
-       
-      </CardContent>
+    <CardContent
+      onMouseOver={() => setIsHover(true)}
+      onMouseOut={() => setIsHover(false)}
+    >
+      <Link to={"/checkout"}>
+        <CardIMG src={item.url} onClick={() => changeBook(item)} />
+      </Link>
+      <CardDetails className={`${isHover ? "bgColor" : ""}`}>
+        <CardTitle>{item.title}</CardTitle>
+        <CardComment>{item.comment}</CardComment>
+        <CardPrice>${item.price}</CardPrice>
+        <ButtonItem
+          variant="contained"
+          color="error"
+          onClick={() => onAdd(item)}
+        >
+          <ShoppingCartCheckoutOutlinedIcon style={{ marginRight: "10px" }} />
+          ADD TO CART
+        </ButtonItem>
+      </CardDetails>
+    </CardContent>
   );
 };
 

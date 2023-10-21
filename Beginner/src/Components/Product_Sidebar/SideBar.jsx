@@ -47,6 +47,7 @@ const SideBarContainer2 = styled.div`
   color: white;
   flex: 1;
   padding-bottom: 1.5rem;
+  padding-left: 20px;
 `
 const Sidebar1 = styled.div`
   ${ipad({ display: "none" })};

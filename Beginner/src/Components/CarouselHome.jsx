@@ -9,7 +9,7 @@ import {
   SlideDirection,
   Indicator,
   CarouselImgContent,
-  CarouselHomeImg
+  CarouselHomeImg,
 } from "../Styles/Carousel.style";
 
 const CarouselHome = ({ carouselImages }) => {
@@ -75,52 +75,51 @@ const CarouselHome = ({ carouselImages }) => {
     },
   };
   return (
-    <CarouselContainer>
-      <CarouselImgContent>
-        <AnimatePresence>
-          <CarouselHomeImg
-            key={currentIndex}
-            src={carouselImages[currentIndex]}
-            variants={slideVariants}
-            initial={direction === "right" ? "hiddenRight" : "hiddenLeft"}
-            animate="visible"
-            exit="exit"
-          />
-        </AnimatePresence>
+      <CarouselContainer>
+        <CarouselImgContent>
+          <AnimatePresence>
+            <CarouselHomeImg
+              key={currentIndex}
+              src={carouselImages[currentIndex]}
+              variants={slideVariants}
+              initial={direction === "right" ? "hiddenRight" : "hiddenLeft"}
+              animate="visible"
+              exit="exit"
+            />
+          </AnimatePresence>
       
-      <SlideDirection>
-        <Left
-          onClick={handlePrevious}
-          variants={slideVariants}
-          whileHover="hover"
-        >
-          <ArrowBackIosNewTwoToneIcon />
-        </Left>
-        <Right
-          onClick={handleNext}
-          variants={slideVariants}
-          whileHover="hover"
-        >
-          <ArrowForwardIosTwoToneIcon />
-        </Right>
-      </SlideDirection>
-  
-      </CarouselImgContent>
-      <Indicator>
-        {carouselImages.map((_, index) => (
-          <div
-            key={index}
-            onClick={() => handleDotClick(index)}
-            className={`dot${
-              currentIndex === index ? " carouselDotActive" : ""
-            }`}
-            initial="initial"
-            animate={currentIndex === index ? "animate" : ""}
-            variants={dotsVariants}
-          ></div>
-        ))}
-      </Indicator>
-    </CarouselContainer>
+        <SlideDirection>
+          <Left
+            onClick={handlePrevious}
+            variants={slideVariants}
+            whileHover="hover"
+          >
+            <ArrowBackIosNewTwoToneIcon />
+          </Left>
+          <Right
+            onClick={handleNext}
+            variants={slideVariants}
+            whileHover="hover"
+          >
+            <ArrowForwardIosTwoToneIcon />
+          </Right>
+        </SlideDirection>
+        </CarouselImgContent>
+        <Indicator>
+          {carouselImages.map((_, index) => (
+            <div
+              key={index}
+              onClick={() => handleDotClick(index)}
+              className={`dot${
+                currentIndex === index ? " carouselDotActive" : ""
+              }`}
+              initial="initial"
+              animate={currentIndex === index ? "animate" : ""}
+              variants={dotsVariants}
+            ></div>
+          ))}
+        </Indicator>
+      </CarouselContainer>
   );
 };
 

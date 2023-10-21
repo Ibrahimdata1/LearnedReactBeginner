@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Button } from '@mui/material';
-import {css} from 'styled-components'
+import { Button } from "@mui/material";
+import { css } from "styled-components";
 
 const ipad = (props) => {
   return css`
@@ -29,7 +29,7 @@ export const CardContainer = styled.div`
   margin: 2rem 0 0 0;
   justify-content: center;
   flex: 4;
-  ${ipad({ justifyContent:'space-around' })}
+  ${ipad({ justifyContent: "space-around" })};
 `;
 export const CardContent = styled.div`
   margin: 15px 15px;
@@ -38,6 +38,7 @@ export const CardContent = styled.div`
   flex-direction: column;
   align-items: center;
   width: 30%;
+  ${mobile({width:'100%',marginRight:'50px'})};
 `;
 export const CardIMG = styled.img`
   max-width: 350px;
@@ -53,13 +54,15 @@ export const CardDetails = styled.div`
   justify-content: center;
   padding: 10px;
   border-radius: 5px;
+  ${ipad({ width: "30vw" })}
+  ${mobile({ width: "100%" })}
 `;
 export const CardTitle = styled.h3`
   margin-bottom: 0.5rem;
   margin-top: 0;
 `;
 export const CardPrice = styled.div`
-    padding-bottom: 15px;
+  padding-bottom: 15px;
 `;
 export const CardComment = styled.div`
   max-width: 12rem;
@@ -67,7 +70,8 @@ export const CardComment = styled.div`
   margin-bottom: 0.5rem;
 `;
 export const ButtonItem = styled(Button)`
-    width: 100%;
-    cursor: pointer;
-`
-
+  width: 100%;
+  cursor: pointer;
+  ${ipad({ width: "30vw" })}
+  ${mobile({ width:'60vw' })};
+`;

@@ -24,10 +24,8 @@ const radioHandler = (title) =>{
       setSearchProduct('')
     }else if(title === "$0-$50"){
       setSearchProduct('Small')
-      console.log(searchProduct)
     }else if(title === "$50-$100"){
       setSearchProduct('Medium')
-      console.log(searchProduct)
     }
     else {
       setSearchProduct(title)

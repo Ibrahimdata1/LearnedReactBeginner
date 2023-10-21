@@ -61,6 +61,7 @@ const Navbar = () => {
       </NavbarInnerContainer>
       {extendNavbar && (
         <NavbarExtendedContainer onClick={()=>setExtendNavbar(prev=>!prev)}>
+          <NavbarLinkExtend to="/">Home</NavbarLinkExtend>
           <NavbarLinkExtend to="/products">Products</NavbarLinkExtend>
           <NavbarLinkExtend to="/student">
             Student Of Knowledge

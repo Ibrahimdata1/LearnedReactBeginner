@@ -19,7 +19,7 @@ const SliderSonItem = ({item}) => {
       sx={{ display: "flex", gap: 2, flexWrap: "wrap", p: 1, m: 0 ,justifyContent:'center'}}
       className="BoxEffect" onClick={changeVidUrlFn}
     >
-      <Card component="li" sx={isMobile ? { minWidth: 200, flexGrow: 1,maxHeight:'20vh',maxWidth:'60vw'}:{ minWidth: 200, flexGrow: 1}}>
+      <Card component="li" sx={isMobile ? { minWidth: 200, flexGrow: 1,maxHeight:'20vh',maxWidth:'70vw',padding:'30px',border:'2px solid #9c0c0c7c'}:{ minWidth: 200, flexGrow: 1,border:'2px solid #9c0c0c7c'}}>
         
           <CardCover>
             <img src={item.url} alt="" style={{objectFit:'cover'}}/>

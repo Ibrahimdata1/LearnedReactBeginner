@@ -38,6 +38,7 @@ export const SideBarContainer = styled(motion.div)`
   color: white;
   flex: 1;
   padding-bottom: 1.5rem;
+  padding-left: 20px;
   ${ipad({ display: "none" })}
 `;
 export const LogoContainer = styled.div`

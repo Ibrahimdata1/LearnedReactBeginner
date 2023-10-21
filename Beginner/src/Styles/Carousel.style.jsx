@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { css } from "styled-components";
 
 export const CarouselContainer = styled.div`
     padding-bottom: 20px;
 `;
-
 export const CarouselImgContent = styled.div`
   position: relative;
   border-radius: 10px;
-  height: 400px;
-  max-width: 650px;
+  height: 40vh;
+  width: 30vw;
   margin: auto;
   overflow: hidden;
 `;
