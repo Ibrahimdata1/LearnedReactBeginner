@@ -1,40 +1,74 @@
 import styled from "styled-components";
+import {css} from 'styled-components'
 
+export const ipad = (props) => {
+  return css`
+    @media only screen and (max-width: 992px) {
+      ${props}
+    }
+  `;
+};
+export const desktop = (props) => {
+  return css`
+    @media only screen and (min-width: 993px) {
+      ${props}
+    }
+  `;
+};
+export const mobile = (props) => {
+  return css`
+    @media only screen and (max-width: 420px) {
+      ${props}
+    }
+  `;
+};
 const Artical = styled.div`
   display: flex;
   max-width: 100vw;
-  max-height: 290px;
-  padding-left: 20px;
   border-top: 2px solid white;
   border-bottom: 2px solid white;
   background-color: #33333342;
   h1{
     font-weight: bold;
   }
+  ${ipad({ flexDirection:'column',maxHeight:'none'})}
 `
+
 const Content = styled.div`
   display: flex;
   flex-direction: column;
   flex: 2;
+  padding-left: 20px;
 `
 const Text = styled.h4`
   flex: 2;
+  ${ipad({ marginTop:'0'})}
 `
 const ImageContainer = styled.div`
   flex: 1;
-  max-width: 400px;
-  max-height: 290px;
+  width: 400px;
+  height: 350px;
   margin-left: 80px;
+  ${ipad({width:'100vw',height:'320px',width:'100%',marginLeft:'0' })}
   img{
     height: 100%;
     width: 100%;
     object-fit: cover;
   }
 `
+const ImageMobile = styled.div`
+  ${desktop({display:'none' })}
+`
+const ImageDesktop = styled.div`
+  ${ipad({display:'none' })}
+`
 const Ariticle = () => {
 
   return (
     <Artical>
+      <ImageMobile>
+        <ImageContainer><img src="/Images/articlepic.jpg"/></ImageContainer>
+      </ImageMobile>
       <Content>
       <h1>Self-Development Program</h1>
         <Text>
@@ -49,7 +83,9 @@ const Ariticle = () => {
           created you.
         </Text>
       </Content>
-      <ImageContainer><img src="/Images/articlepic.jpg"/></ImageContainer>
+      <ImageDesktop>
+        <ImageContainer><img src="/Images/articlepic.jpg"/></ImageContainer>
+      </ImageDesktop>
     </Artical>
   );
 };
