@@ -17,10 +17,23 @@ import { Link } from "react-router-dom";
 const ProductBookItem = ({ item }) => {
   const { onAdd, changeBook } = React.useContext(CartContext);
   const [isHover, setIsHover] = React.useState(false);
+  const modalMotion = {
+    close: {
+      opacity: 0,
+    },
+    open: {
+      opacity: 1,
+      transition: {
+        type: "spring",
+        duration: 5,
+      },
+    },
+  };
   return (
     <CardContent
       onMouseOver={() => setIsHover(true)}
       onMouseOut={() => setIsHover(false)}
+      initial={{opacity:0,y:-1000}} animate={{opacity:1,y:0,type:'spring'}}
     >
       <Link to={"/checkout"}>
         <CardIMG src={item.url} onClick={() => changeBook(item)} />

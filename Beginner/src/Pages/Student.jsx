@@ -3,7 +3,7 @@ import SliderData from "../Data/SlideData";
 import BookData from "../Data/BookData";
 import VideoPlayer from "../Components/VideoComponents/VideoPlayer";
 import React from "react";
-import { BackgroundContainer } from "../Styles/SDprogram.style";
+
 
 const Student = () => {
     const [showSlider,setShowSlider] = React.useState(false)
@@ -12,7 +12,6 @@ const Student = () => {
     },3000);
   return (
     <div style={{backgroundColor:'#18150d'}}>
-      <BackgroundContainer/>
       <VideoPlayer/>
       {showSlider && (
       <div>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Button } from "@mui/material";
 import { css } from "styled-components";
+import {motion} from 'framer-motion';
 
 const ipad = (props) => {
   return css`
@@ -38,7 +39,7 @@ export const CardContainer = styled.div`
   flex: 4;
   ${ipad({ justifyContent: "space-around"})};
 `;
-export const CardContent = styled.div`
+export const CardContent = styled(motion.div)`
   margin: 15px 15px;
   cursor: pointer;
   display: flex;

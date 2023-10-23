@@ -42,18 +42,17 @@ const VideoContentIpad = styled.div`
 `
 const VideoPlayer = () => {
     const {urlVid} = React.useContext(CartContext)
-    
 
   return (
     <VideoPlayerContainer>
       <VideoContentMobile>
-        <Player src={urlVid} poster='/Images/pixelbg4.jpg' dimensions= {{ width: "90vw", height: "30vh" }} />
+        <Player src={urlVid} dimensions= {{ width: "90vw", height: "30vh" }} />
       </VideoContentMobile>
       <VideoContentIpad>
-      <Player src={urlVid} poster='/Images/pixelbg4.jpg' dimensions= {{ width: "90vw", height: "60vh" }} />
+      <Player src={urlVid} dimensions= {{ width: "90vw", height: "60vh" }} />
       </VideoContentIpad>
       <VideoContentDesktop>
-        <Player src={urlVid} poster='/Images/pixelbg4.jpg' dimensions= {{ width: "70vw", height: "75vh" }}/>
+        <Player src={urlVid} dimensions= {{ width: "70vw", height: "75vh" }}/>
       </VideoContentDesktop>
     </VideoPlayerContainer>
   )

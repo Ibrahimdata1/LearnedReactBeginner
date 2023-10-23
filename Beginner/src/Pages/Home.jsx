@@ -45,12 +45,14 @@ const Home = () => {
     <div style={{ backgroundColor: "#18150d" }}>
       <HomeBG />
       <Article />
-      <SliderMom
-        title="Student of Knowledge - Foundation"
-        slidedata={SliderData}
-      />
-      <SliderMom title="Tazkiyah" slidedata={SliderData} />
-      <SliderMom title="Aqeedah" slidedata={SliderData} />
+      <a href='/student' style={{textDecoration:'none'}}>
+        <SliderMom
+          title="Student of Knowledge - Foundation"
+          slidedata={SliderData}
+        />
+        <SliderMom title="Tazkiyah" slidedata={SliderData} />
+        <SliderMom title="Aqeedah" slidedata={SliderData} />
+        </a>
       <Title>New Events</Title>
       <Text> Due to the global transformation of technology in recent years, the
           challenges we deal with have changed drastically in comparison to a few

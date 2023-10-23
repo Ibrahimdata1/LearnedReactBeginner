@@ -89,11 +89,13 @@ position: relative;
 `
 export const BackgroundContainer = styled.div`
     display: flex;
-    margin-top: 30px;
-    height: 80vh;
-    /* background-color: black; */
-    background: url('/Images/BannerSifa.jpg')center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    ${mobile({ height:'20vh',marginTop:'80px',marginBottom:'10px'})}
+    margin-top: 70px;
+    padding-top: 20px;
+    img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        filter: brightness(80%);
+    }
+    ${mobile({ height:'20vh',marginTop:'80px',marginBottom:'20px'})}
 `

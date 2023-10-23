@@ -18,4 +18,5 @@ export const mobile = (props) => {
 export const VideoPlayerContainer = styled.div`
     display: flex;
     justify-content: center;
+    padding-top: 110px;
 `
