@@ -15,12 +15,20 @@ export const ipad = (props) => {
     }
   `;
 };
+export const mobileBig = (props) => {
+  return css`
+    @media only screen and (max-width: 700px) {
+      ${props}
+    }
+  `;
+};
 export const Container = styled.div`
   display: flex;
   align-items: start;
   background-color: #191202;
-  ${ipad({ padding:' 0 10px' })}
-  ${mobile({ width:'100%',flexDirection:'column',paddingBottom:'20px'})}
+  padding: 50px;
+  ${ipad({ padding:'30px' })}
+  ${mobileBig({ width:'100%',flexDirection:'column',padding:'0 0 30px 10px'})}
 `;
 export const Left = styled.div`
   flex: 1;
@@ -28,21 +36,21 @@ export const Left = styled.div`
   flex-direction: column;
   justify-content: start;
   padding: 20px;
-  ${ipad({ padding:'0 0 20px 0' })}
-  ${mobile({ alignItems:'center'})}
+  ${ipad({ padding:'0 0 20px 0',marginRight:'30px' })}
+  ${mobileBig({ alignItems:'center',marginRight:'10px'})}
 `;
 export const Center = styled.div`
   flex: 1;
   padding: 20px 20px 20px 190px;
   ${ipad({ padding:'0' })}
-  ${mobile({ flexDirection:'column', display:'flex',justifyContent:'center',alignItems:'center'})}
+  ${mobileBig({ flexDirection:'column', display:'flex',justifyContent:'center',alignItems:'center',width:'100%'})}
 `;
 export const Right = styled.div`
   flex: 1;
   width: 100%;
   padding: 20px 20px 20px 100px;
   ${ipad({ padding:'0' })}
-  ${mobile({ flexDirection:'column', display:'flex',justifyContent:'center',alignItems:'center'})}
+  ${mobileBig({ flexDirection:'column', display:'flex',justifyContent:'center',alignItems:'center'})}
 `;
 export const Title = styled.h3`
   margin-bottom: 30px;
@@ -53,7 +61,7 @@ export const List = styled.ul`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  ${mobile({marginLeft:'65px'})}
+  ${mobileBig({textAlign:'center'})}
 `;
 export const ListItem = styled.a`
   width: 50%;

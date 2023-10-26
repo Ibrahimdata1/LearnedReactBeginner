@@ -33,7 +33,7 @@ const ProductBookItem = ({ item }) => {
     <CardContent
       onMouseOver={() => setIsHover(true)}
       onMouseOut={() => setIsHover(false)}
-      initial={{opacity:0,y:-1000}} animate={{opacity:1,y:0,type:'spring'}}
+      initial={{opacity:0,y:-100}} animate={{opacity:1,y:0,transitionDuration:'150ms'}}
     >
       <Link to={"/checkout"}>
         <CardIMG src={item.url} onClick={() => changeBook(item)} />

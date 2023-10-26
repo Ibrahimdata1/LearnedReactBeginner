@@ -6,7 +6,7 @@ export const BackgroundContainer = styled.div`
     margin-top: 80px;
     height: 100vh;
     /* background-color: black; */
-    background: url('/Images/library.jpg')center;
+    background: url('/Images/libraryHomepage.jpg')center;
     background-size: cover;
     box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.5);
 `

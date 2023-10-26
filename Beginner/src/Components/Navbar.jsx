@@ -41,7 +41,7 @@ const Navbar = () => {
             <NavbarLink to="/">Home</NavbarLink>
             <NavbarLink to="/products">Products</NavbarLink>
             <NavbarLink to="/student">Student Of Knowledge</NavbarLink>
-            <NavbarLink to="/about">Contact Us</NavbarLink>
+            <NavbarLink to="/register">Register</NavbarLink>
             <OpenLinksButton onClick={() => setExtendNavbar((curr) => !curr)}>
               {extendNavbar ? <>&#10005;</> : <>&#8801;</>}{" "}
             </OpenLinksButton>

@@ -33,5 +33,6 @@ export const IconLink = styled.a`
   margin-left: 2rem;
 `;
 export const ProfileContainer = styled.div`
-  flex: 1;
+  flex: 2;
+  padding-right: 30px;
 `;

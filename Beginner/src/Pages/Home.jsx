@@ -1,29 +1,32 @@
 import SliderMom from "../Components/SliderGeneral/SliderMom";
 import HomeBG from "../Components/HomeBG";
-import SliderData from "../Data/SlideData";
 import CarouselHome from "../Components/CarouselHome";
 import CarouselHomeData from "../Data/CarouselHomeData";
 import Article from "../Components/Ariticle";
 import styled from "styled-components";
 import { css } from "styled-components";
+import Recommend from "../Data/Recommend";
+import Aqeedah from "../Data/Aqeedah";
+import Tazkiyah from "../Data/Tazkiyah";
+import { Link } from "react-router-dom";
 
-export const ipad = (props) => {
+const ipad = (props) => {
   return css`
     @media only screen and (max-width: 992px) {
       ${props}
     }
   `;
 };
-export const desktop = (props) => {
+const mobile = (props) => {
   return css`
-    @media only screen and (min-width: 993px) {
+    @media only screen and (max-width: 420px) {
       ${props}
     }
   `;
 };
-export const mobile = (props) => {
+const mobileBig = (props) => {
   return css`
-    @media only screen and (max-width: 420px) {
+    @media only screen and (max-width: 700px) {
       ${props}
     }
   `;
@@ -40,19 +43,25 @@ const Title = styled.h1`
 const Text = styled.p`
   padding: 10px 20px 0 20px;
 `
+const CarouselHomeIpad = styled.div`
+  ${ipad({ display: "none"})}
+`
+const CarouselHomeMobile = styled.div`
+  ${mobileBig({ display: "none"})}
+`
 const Home = () => {
   return (
     <div style={{ backgroundColor: "#18150d" }}>
       <HomeBG />
       <Article />
-      <a href='/student' style={{textDecoration:'none'}}>
+      <Link to='/student' style={{textDecoration:'none'}}>
         <SliderMom
           title="Student of Knowledge - Foundation"
-          slidedata={SliderData}
+          slidedata={Recommend}
         />
-        <SliderMom title="Tazkiyah" slidedata={SliderData} />
-        <SliderMom title="Aqeedah" slidedata={SliderData} />
-        </a>
+        <SliderMom title="Tazkiyah" slidedata={Tazkiyah} />
+        <SliderMom title="Aqeedah" slidedata={Aqeedah} />
+        </Link>
       <Title>New Events</Title>
       <Text> Due to the global transformation of technology in recent years, the
           challenges we deal with have changed drastically in comparison to a few
@@ -65,8 +74,12 @@ const Home = () => {
           created you.</Text>
       <div style={{ display: "flex",justifyContent:'space-around',padding:'20px 0 50px 0'}}>
         <CarouselHome carouselImages={CarouselHomeData} />
-        <CarouselHome carouselImages={CarouselHomeData} />
-        <CarouselHome carouselImages={CarouselHomeData} />
+        <CarouselHomeMobile>
+          <CarouselHome carouselImages={CarouselHomeData} />
+        </CarouselHomeMobile>
+        <CarouselHomeIpad>
+          <CarouselHome carouselImages={CarouselHomeData} />
+        </CarouselHomeIpad>
       </div>
     </div>
   );

@@ -6,10 +6,10 @@ import Products from "./Pages/Products";
 import { CartContext } from "./Components/Context";
 import React from "react";
 import Student from "./Pages/Student";
-import VidPlayerData from "./Data/VidPlayerData";
 import Footer from "./Components/Footer";
 import Checkout from './Pages/Checkout'
 import BookData from './Data/BookData'
+import Register from "./Pages/Register";
 
 const App = () => {
 //-------------CartFunction------------//
@@ -62,9 +62,10 @@ const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [urlVid, setUrlVid] = React.useState(VidPlayerData);
+  const iframePlayer = 'https://www.youtube.com/embed/57mvyD9Rk1U'
+  const [urlVid, setUrlVid] = React.useState(iframePlayer);
   const changeVidUrl = (item) => {
-    const newUrl = urlVid.map((urlVid)=>( {...urlVid, url: item.vidUrl}) );
+    const newUrl = item.vidUrl;
    setUrlVid(newUrl);
   };
 //-----------Checkout-----------//
@@ -90,7 +91,7 @@ React.useEffect(()=>{
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/student" element={<Student/>}/>
-        <Route path="/about" />
+        <Route path="/register" element={<Register/>}/>
         <Route path="/checkout" element={<Checkout/>}/>
       </Routes>
       <Footer/>

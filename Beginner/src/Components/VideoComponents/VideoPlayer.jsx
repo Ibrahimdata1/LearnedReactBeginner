@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import {css} from 'styled-components'
-import { Player } from "react-tuby";
-import "react-tuby/css/main.css";
-import {VideoPlayerContainer} from '../../Styles/Video.style'
+import { css } from "styled-components";
+import { VideoPlayerContainer } from "../../Styles/Video.style";
 import React from "react";
-import { CartContext } from "../Context";
+import { Container } from "@mui/material";
+import { CartContext } from '../Context'
 
 export const mobile = (props) => {
   return css`
@@ -28,34 +27,32 @@ export const desktop = (props) => {
   `;
 };
 const VideoContentMobile = styled.div`
-  ${desktop({ display:'none'})}
-  ${ipad({ display:'none'})}
-  ${mobile({ display:'block'})}
-`
+  ${desktop({ display: "none" })}
+  ${ipad({ display: "none" })}
+  ${mobile({ display: "block" })}
+`;
 const VideoContentDesktop = styled.div`
-  ${mobile({ display:'none'})}
-  ${ipad({ display:'none'})}
-`
-const VideoContentIpad = styled.div`
-  ${desktop({ display:'none'})};
-  ${mobile({ display:'none'})}
-`
-const VideoPlayer = () => {
-    const {urlVid} = React.useContext(CartContext)
+  ${mobile({ display: "none" })}
+  ${ipad({ display: "none" })}
+`;
+const VideoContentIpad = styled(Container)`
+height: 500px;
+${ipad({ height:'450px' })}
+  ${mobile({ height:'300px'})}
+`;
 
+const VideoPlayer = () => {
+  const {urlVid} = React.useContext(CartContext)
+  React.useEffect(()=>{
+    console.log(urlVid)
+  },[])
   return (
     <VideoPlayerContainer>
-      <VideoContentMobile>
-        <Player src={urlVid} dimensions= {{ width: "90vw", height: "30vh" }} />
-      </VideoContentMobile>
-      <VideoContentIpad>
-      <Player src={urlVid} dimensions= {{ width: "90vw", height: "60vh" }} />
+      <VideoContentIpad maxWidth='md'>
+        <iframe src={urlVid} width={'100%'} height={'100%'} allow="fullscreen" ></iframe>
       </VideoContentIpad>
-      <VideoContentDesktop>
-        <Player src={urlVid} dimensions= {{ width: "70vw", height: "75vh" }}/>
-      </VideoContentDesktop>
     </VideoPlayerContainer>
-  )
-}
+  );
+};
 
-export default VideoPlayer
+export default VideoPlayer;

@@ -2,6 +2,34 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { css } from "styled-components";
 
+export const ipad = (props) => {
+  return css`
+    @media only screen and (max-width: 992px) {
+      ${props}
+    }
+  `;
+};
+export const desktop = (props) => {
+  return css`
+    @media only screen and (min-width: 993px) {
+      ${props}
+    }
+  `;
+};
+export const mobile = (props) => {
+  return css`
+    @media only screen and (max-width: 420px) {
+      ${props}
+    }
+  `;
+};
+export const mobileBig = (props) => {
+  return css`
+    @media only screen and (max-width: 700px) {
+      ${props}
+    }
+  `;
+};
 export const CarouselContainer = styled.div`
     padding-bottom: 20px;
 `;
@@ -12,6 +40,8 @@ export const CarouselImgContent = styled.div`
   width: 30vw;
   margin: auto;
   overflow: hidden;
+  ${ipad({width:'45vw'})}
+  ${mobileBig({width:'90vw'})}
 `;
 export const CarouselHomeImg = styled(motion.img)`
   width: 99%;
