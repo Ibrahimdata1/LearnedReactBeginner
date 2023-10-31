@@ -1,0 +1,12 @@
+const PosterData2 = [
+  "/Images/dawrahclassic.jpg",
+
+  "/Images/dawrahclassic.jpg",
+
+  "/Images/dawrahclassic.jpg",
+
+  "/Images/dawrahclassic.jpg",
+
+  "/Images/dawrahclassic.jpg",
+];
+export default PosterData2;

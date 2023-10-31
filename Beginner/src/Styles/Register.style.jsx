@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {mobile,ipad} from '../Styles/Checkout.style'
-
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   width: 100vw;
@@ -43,6 +43,9 @@ export const Agreement = styled.span`
   margin: 20px 0;
 `;
 export const Button = styled.button`
+display: flex;
+justify-content: center;
+text-decoration: none;
 margin: auto;
   width: 40%;
   border: none;
@@ -52,8 +55,10 @@ margin: auto;
   color: white;
   border-radius: 5px;
   ${mobile({width:'100%'})}
-
+  &:active{
+    transform: translateY(2px)
+  }
   &:hover{
-    font-weight: bolder;
+    filter: brightness(105%);
   }
 `;

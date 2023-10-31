@@ -9,6 +9,8 @@ import Recommend from "../Data/Recommend";
 import Aqeedah from "../Data/Aqeedah";
 import Tazkiyah from "../Data/Tazkiyah";
 import { Link } from "react-router-dom";
+import PosterData2 from "../Data/PosterData2";
+import PosterData3 from "../Data/PosterData3";
 
 const ipad = (props) => {
   return css`
@@ -75,10 +77,10 @@ const Home = () => {
       <div style={{ display: "flex",justifyContent:'space-around',padding:'20px 0 50px 0'}}>
         <CarouselHome carouselImages={CarouselHomeData} />
         <CarouselHomeMobile>
-          <CarouselHome carouselImages={CarouselHomeData} />
+          <CarouselHome carouselImages={PosterData2} />
         </CarouselHomeMobile>
         <CarouselHomeIpad>
-          <CarouselHome carouselImages={CarouselHomeData} />
+          <CarouselHome carouselImages={PosterData3} />
         </CarouselHomeIpad>
       </div>
     </div>

@@ -61,8 +61,9 @@ export const CardDetails = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 10px;
+  height: 250px;
   border-radius: 5px;
   ${ipad({ width: "30vw" })}
   ${mobileBig({width:'40vw'})};
@@ -75,9 +76,10 @@ export const CardTitle = styled.h3`
 export const CardPrice = styled.div`
   padding-bottom: 15px;
 `;
-export const CardComment = styled.div`
+export const CardTitleArab = styled.div`
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@600&family=IBM+Plex+Sans+Arabic:wght@100&family=Montserrat:ital,wght@0,100;0,400;1,200&family=Noto+Sans+Arabic:wght@100&display=swap');
   max-width: 12rem;
-  text-align: center;
+  text-align: left;
   margin-bottom: 0.5rem;
 `;
 export const ButtonDesktop = styled.div`
@@ -88,6 +90,7 @@ export const ButtonIpad = styled.div`
 `
 export const ButtonItem = styled(Button)`
   width: 100%;
+  flex: 1;
   cursor: pointer;
   ${ipad({ width: "18vw"})}
   ${mobileBig({width:'30vw'})};

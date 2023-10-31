@@ -1,5 +1,6 @@
 import {Container,Wrapper,Title,Form,Input,Agreement,Button} from '../Styles/Register.style'
 
+
 const Register = () => {
   return (
     <Container>
@@ -16,7 +17,7 @@ const Register = () => {
             By creating an account, l consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
           </Agreement>
-          <Button>CREATE</Button>
+          <Button as='a' href='/'>CREATE</Button>
         </Form>
       </Wrapper>
     </Container>

@@ -1,12 +1,12 @@
 const CarouselHomeData = [
-  "/Images/carouselhome1.jpg",
+  "/Images/posterdata1_1.jpeg",
 
-  "/Images/carouselhome2.jpg",
+  "/Images/posterdata1_1.jpeg",
 
-  "/Images/carouselhome3.jpg",
+  "/Images/posterdata1_1.jpeg",
 
-  "/Images/carouselhome4.jpg",
+  "/Images/posterdata1_1.jpeg",
 
-  "/Images/carouselhome5.jpg",
+  "/Images/posterdata1_1.jpeg",
 ];
 export default CarouselHomeData;

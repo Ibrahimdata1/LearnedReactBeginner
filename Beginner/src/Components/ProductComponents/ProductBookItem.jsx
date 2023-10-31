@@ -1,5 +1,5 @@
 import {
-  CardComment,
+  CardTitleArab,
   CardIMG,
   CardDetails,
   CardPrice,
@@ -13,6 +13,7 @@ import { CartContext } from "../Context";
 import React from "react";
 import ShoppingCartCheckoutOutlinedIcon from "@mui/icons-material/ShoppingCartCheckoutOutlined";
 import { Link } from "react-router-dom";
+
 
 const ProductBookItem = ({ item }) => {
   const { onAdd, changeBook } = React.useContext(CartContext);
@@ -39,9 +40,11 @@ const ProductBookItem = ({ item }) => {
         <CardIMG src={item.url} onClick={() => changeBook(item)} />
       </Link>
       <CardDetails className={`${isHover ? "bgColor" : ""}`}>
-        <CardTitle>{item.title}</CardTitle>
-        <CardComment>{item.comment}</CardComment>
-        <CardPrice>${item.price}</CardPrice>
+        <div style={{flex:'3'}}>
+          <CardTitle>{item.title}</CardTitle>
+          <CardTitleArab>{item.titleArab}</CardTitleArab>
+          <CardPrice>${item.price}</CardPrice>
+        </div>
         <ButtonDesktop>
           <ButtonItem
             variant="contained"
