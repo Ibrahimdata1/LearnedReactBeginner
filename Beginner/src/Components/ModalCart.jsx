@@ -23,6 +23,7 @@ import {
   TotalPriceTitle,
   ButtonCheckout,
   CardImgDiv,
+  CartEmptyContainer
 } from "../Styles/ModalCart.style";
 import Modal from "@mui/material/Modal";
 import { CartContext } from "./Context";
@@ -33,7 +34,17 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Button from "@mui/material/Button";
 import {motion} from 'framer-motion'
 
-
+const CartEmpty = ()=>{
+  return(
+    <CartEmptyContainer>
+      <h1 style={{fontWeight:'bold'}}>Your Cart is Currently Empty</h1>
+      <div>
+        <h5>Before proceed to checkout, you must add some products to your cart.</h5>
+        <h5>You will find a lot of interesting products on our "Products" page.</h5>
+      </div>
+    </CartEmptyContainer>
+  )
+}
 const style = {
   position: "absolute",
   top: "50%",
@@ -94,10 +105,10 @@ React.useEffect(()=>{
               variants={modalMotion} initial='hidden' animate='visible'
             >
                   <Box sx={style} style={isRes ?{ padding: "0 30px",backgroundColor:'#18150d',width:'80%'}:{padding: "0 30px",backgroundColor:'#18150d'}}>
-                  <ModalContainer>
+                  <ModalContainer style={{color:'white'}}>
                     <ModalTitle>Cart Items</ModalTitle>
                     <ModalContent>
-                      {cartLength === 0 && <div>Cart is Empty</div>}
+                      {cartLength === 0 && <CartEmpty/>}
                       {cart.map((item)=>(
                         <Card>
                           <CardName>Book1</CardName>

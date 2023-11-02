@@ -4,28 +4,30 @@ import { css } from "styled-components";
 
 export const ipad = (props) => {
   return css`
-    @media only screen and (max-width: 992px) {
+    @media only screen and (max-width: 1100px) {
       ${props}
     }
   `;
 };
-export const desktop = (props) => {
-  return css`
-    @media only screen and (min-width: 993px) {
-      ${props}
-    }
-  `;
-};
+
 export const mobile = (props) => {
+  return css`
+    @media only screen and (max-width: 620px) {
+      ${props}
+    }
+  `;
+};
+export const smallMobile = (props) => {
   return css`
     @media only screen and (max-width: 420px) {
       ${props}
     }
   `;
 };
+
 export const mobileBig = (props) => {
   return css`
-    @media only screen and (max-width: 700px) {
+    @media only screen and (max-width: 960px) {
       ${props}
     }
   `;
@@ -36,19 +38,21 @@ export const CarouselContainer = styled.div`
 export const CarouselImgContent = styled.div`
   position: relative;
   border-radius: 10px;
-  height: 40vh;
-  width: 30vw;
+  max-width: 50vw;
+  height:60vh;
   margin: auto;
   overflow: hidden;
-  ${ipad({width:'45vw'})}
-  ${mobileBig({width:'90vw'})}
+  ${ipad({height:'50vh'})}
+  ${mobileBig({maxWidth:'90vw',height:'40vh'})}
+  ${mobile({maxWidth:'90vw',height:'50vh'})}
+  ${smallMobile({maxWidth:'90vw',height:'35vh'})}
 `;
 export const CarouselHomeImg = styled(motion.img)`
   width: 99%;
   height: 99%;
   border-radius: 8px;
   border: 1px solid #010b13;
-  object-fit: cover;
+  object-fit: fill;
 `;
 export const SlideDirection = styled.div`
   display: flex;

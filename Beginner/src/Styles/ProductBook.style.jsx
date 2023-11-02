@@ -48,7 +48,7 @@ export const CardContent = styled(motion.div)`
   width: 20%;
   ${mobile({width:'100%'})};
   ${mobileBig({width:'40%'})};
-  ${ipad({ margin:'0 20px',marginBottom:'20px' })};
+  ${ipad({ margin:'0 20px',marginBottom:'20px',width:'40%' })};
 `;
 export const CardIMG = styled.img`
   max-width: 350px;

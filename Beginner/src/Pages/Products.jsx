@@ -21,7 +21,14 @@ const Products = () => {
   const radioHandler = (title) => {
     if (title === "All") {
       setSearchProduct("");
-    } else if (title === "$0-$50") {
+    } else if (title === "100% Harakat") {
+      setSearchProduct("100%")
+    } else if (title === "50% Harakat") {
+      setSearchProduct("50%")
+    } else if (title === "No Harakat") {
+      setSearchProduct("none")
+    }
+     else if (title === "$0-$50") {
       setSearchProduct("Small");
     } else if (title === "$50-$100") {
       setSearchProduct("Medium");
@@ -41,7 +48,9 @@ const Products = () => {
   const filterSearch = displayProducts.filter((item) => {
     return (
       item.title.toLowerCase().includes(searchProduct.toLowerCase()) ||
-      item.priceAmount.toLowerCase().includes(searchProduct.toLowerCase())
+      item.priceAmount.toLowerCase().includes(searchProduct.toLowerCase()) ||
+      item.type.toLowerCase().includes(searchProduct.toLowerCase()) ||
+      item.harakat.toLowerCase().includes(searchProduct.toLowerCase())
     );
   });
 

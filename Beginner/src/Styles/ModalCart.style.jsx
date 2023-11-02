@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {css} from 'styled-components'
+import { css } from "styled-components";
 
 export const ipad = (props) => {
   return css`
@@ -22,7 +22,7 @@ export const ModalContainer = styled.aside`
   height: 95vh;
   justify-content: flex-start;
   color: #18150d;
-  ${mobile({ height:'80vh',width:'80vw'})}
+  ${mobile({ height: "80vh", width: "80vw" })}
 `;
 export const ModalTitle = styled.h2`
   margin-bottom: 25px;
@@ -30,10 +30,10 @@ export const ModalTitle = styled.h2`
   justify-content: center;
 `;
 export const ModalContent = styled.div`
-overflow-y: scroll;
+  overflow-y: scroll;
   &::-webkit-scrollbar {
-  display: none;
-}   
+    display: none;
+  }
 `;
 export const Card = styled.div`
   display: flex;
@@ -65,12 +65,12 @@ export const CardButtonContainer = styled.div`
 export const CardCal = styled.div`
   display: flex;
   justify-content: center;
-  flex: 2
+  flex: 2;
 `;
 export const CardDelete = styled.div`
   display: flex;
   justify-content: flex-end;
-  flex: 1
+  flex: 1;
 `;
 export const SecondModalContainer = styled.div`
   line-height: 10px;
@@ -78,9 +78,9 @@ export const SecondModalContainer = styled.div`
   flex-direction: column;
 `;
 export const Line = styled.hr`
-    background-color: gray;
-    width: 100%;
-    margin-top: 20px;
+  background-color: gray;
+  width: 100%;
+  margin-top: 20px;
 `;
 export const ItemPriceContainer = styled.div`
   display: flex;
@@ -125,7 +125,17 @@ export const TotalPriceResult = styled.div`
   color: gold;
 `;
 export const ButtonCheckout = styled.div`
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-`
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+`;
+export const CartEmptyContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h5{
+    font-size: small;
+    color: #f5f5f5d7;
+  }
+`;
