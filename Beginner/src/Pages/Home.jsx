@@ -77,7 +77,7 @@ const Home = () => {
       <Article />
       <Link to="/student" style={{ textDecoration: "none" }}>
         <SliderMom
-          title="Student of Knowledge - Foundation"
+          title="Student of Knowledge"
           slidedata={Recommend}
         />
         <SliderMom title="Tazkiyah" slidedata={Tazkiyah} />

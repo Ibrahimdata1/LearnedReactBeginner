@@ -29,7 +29,7 @@ export const Title = styled.h1`
   color: #ff6b00ff;
   margin-bottom: 15px;
   padding-left: 4rem;
-  ${mobile({ display:'flex',justifyContent:'center',paddingLeft:'0'})}
+  ${mobile({ display:'flex',justifyContent:'center',paddingLeft:'0',textAlign:'center'})}
 `;
 
 export const WrapMomSlide = styled.div``;

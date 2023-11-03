@@ -55,7 +55,8 @@ const CartEmpty = () => {
         variant="contained"
         size="small"
         color="success"
-        style={{ alignItems: "center", marginTop: "35px" }}
+        style={{display:'flex',alignItems: "center", marginTop: "35px",textDecoration:'none' }}
+        as="a" href="/products"
       >
         <span>
           <ShoppingCartOutlinedIcon
@@ -63,7 +64,7 @@ const CartEmpty = () => {
             style={{ marginTop: "3px", marginRight: "5px" }}
           />
         </span>
-        RETURN TO SHOP
+        <span>RETURN TO SHOP</span>
       </Button>
     </CartEmptyContainer>
   );

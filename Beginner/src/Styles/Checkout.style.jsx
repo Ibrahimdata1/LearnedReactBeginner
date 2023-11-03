@@ -20,7 +20,7 @@ export const desktop = (props) => {
 };
 export const mobile = (props) => {
   return css`
-    @media only screen and (max-width: 420px) {
+    @media only screen and (max-width: 600px) {
       ${props}
     }
   `;
@@ -30,6 +30,7 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   padding: 20px;
   ${ipad({ padding: "40px 10px 10px 10px" })}
+  ${mobile({ padding: "40px 10px 10px 10px" })}
 `;
 export const Title = styled.h1`
   text-align: center;
@@ -117,6 +118,7 @@ export const Details = styled.div`
   justify-content: flex-start;
   padding-left: 30px;
   ${ipad({ flex:1 })}
+  ${mobile({ paddingLeft:'10px' })}
 `;
 export const ProductAmountContainer = styled.div`
   display: flex;
@@ -166,7 +168,8 @@ margin: 0 0 10px 0;
 &:hover{
   color: #ff5900;
   transition: 0.3s;
-}
+};
+${mobile({margin:'0 20px'})}
 `;
 export const RelatedItemPrice = styled.p`
 margin: 0 0 10px 0;
@@ -174,13 +177,16 @@ color: #ff0000e0;
 ${ipad({ textAlign:'center'})}
 `;
 export const RelatedItemComment = styled.p`
+  margin-right: 20px;
   ${desktop({ display:'none'})}
+  ${mobile({width:'100%',marginLeft:'10px'})}
 `
 export const RelatedContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   ${ipad({ display:'flex',flexDirection:'row',alignItems:'flex-start'})}
+  ${mobile({flexWrap:'wrap',marginBottom:'40px'})}
 `;
 export const RelatedItemText = styled.div`
   display: flex;
@@ -188,6 +194,7 @@ export const RelatedItemText = styled.div`
   justify-content: space-between;
   margin-left: 20px;
   ${ipad({ marginLeft:'0'})}
+  ${mobile({flexDirection:'row',alignItems:'center'})}
 `;
 export const RelatedItemImg = styled.img`
   width: 50px;
@@ -210,7 +217,7 @@ export const RelatedItem = styled(Link)`
   cursor: pointer;
   padding: 10px;
   ${ipad({ width:'15vh',flexDirection:'column' })}
-  ${mobile({ marginBottom:'0' })}
+  ${mobile({ marginBottom:'0',flexDirection:'row',alignItems:'center',width:'100%'})}
 `;
 export const WrapProductAmount = styled.div`
   display: flex;
@@ -236,13 +243,14 @@ export const RelatedItemMobile = styled.div`
   flex-direction: column;
   align-items: center;
   ${ipad({ width:'50%'})}
+  ${mobile({ width:'100%' })}
 `
 export const RelatedItemMobileImg = styled.img`
   width: 70px;
   height: 100px;
 `;
 export const RelatedItemMobileContent = styled.div`
-  
+   ${mobile({ marginRight:'10px' })}
 `
 export const RelatedWrapExtension = styled.div`
   display: flex;
@@ -251,7 +259,7 @@ export const RelatedWrapExtension = styled.div`
   margin-left: 20px;
   margin-right: 20px;
   ${desktop({ display:'none'})}
-  ${mobile({ width:'100vh',flexDirection:'column' })}
+  ${mobile({ width:'100%',flexDirection:'column',margin:'0',padding:'0 10px'})}
 `
 export const RelatedExtentionTitle = styled.h1`
   font-weight: 400;
