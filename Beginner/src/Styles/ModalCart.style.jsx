@@ -1,3 +1,4 @@
+import { Typography } from "@mui/joy";
 import styled from "styled-components";
 import { css } from "styled-components";
 
@@ -24,10 +25,12 @@ export const ModalContainer = styled.aside`
   color: #18150d;
   ${mobile({ height: "80vh", width: "80vw" })}
 `;
-export const ModalTitle = styled.h2`
+export const ModalTitle = styled(Typography)`
   margin-bottom: 25px;
-  display: flex;
+  h2{
+    display: flex;
   justify-content: center;
+  }
 `;
 export const ModalContent = styled.div`
   overflow-y: scroll;
@@ -134,6 +137,7 @@ export const CartEmptyContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 50px;
   h5{
     font-size: small;
     color: #f5f5f5d7;
