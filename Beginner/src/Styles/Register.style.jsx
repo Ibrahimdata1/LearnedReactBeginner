@@ -1,15 +1,12 @@
 import styled from "styled-components";
 import {mobile,ipad} from '../Styles/Checkout.style'
-import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.2),
-      rgba(255, 255, 255, 0.85)
-    ),
-    url("/Images/libraryRegister.jpg")center;
+  background:
+  linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url("/Images/libraryRegister.jpg")center; 
     background-size: cover;
   display: flex;
   align-items: center;

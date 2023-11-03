@@ -5,6 +5,7 @@ import CardCover from "@mui/joy/CardCover";
 import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
 import { CartContext } from '../../Components/Context';
+import { Link } from "react-router-dom";
 
 const resolution = window.innerWidth;
 const isMobile = resolution <= 420;
@@ -15,6 +16,7 @@ const SliderSonItem = ({item}) => {
   }
  
   return (
+    <Link to="/student" style={{ textDecoration: "none" }}>
     <Box
       sx={{ display: "flex", gap: 2, flexWrap: "wrap", p: 1, m: 0 ,justifyContent:'center'}}
       className="BoxEffect" onClick={changeVidUrlFn}
@@ -35,6 +37,7 @@ const SliderSonItem = ({item}) => {
         </CardContent>
       </Card>
     </Box>
+    </Link>
   );
 };
 export default SliderSonItem;

@@ -7,7 +7,6 @@ import { css } from "styled-components";
 import Recommend from "../Data/Recommend";
 import Aqeedah from "../Data/Aqeedah";
 import Tazkiyah from "../Data/Tazkiyah";
-import { Link } from "react-router-dom";
 import PosterData2 from "../Data/PosterData2";
 import PosterData1 from "../Data/PosterData1";
 import Slider from "react-slick";
@@ -75,14 +74,12 @@ const Home = () => {
     <div style={{ backgroundColor: "#18150d" }}>
       <HomeBG />
       <Article />
-      <Link to="/student" style={{ textDecoration: "none" }}>
         <SliderMom
           title="Student of Knowledge"
           slidedata={Recommend}
         />
         <SliderMom title="Tazkiyah" slidedata={Tazkiyah} />
         <SliderMom title="Aqeedah" slidedata={Aqeedah} />
-      </Link>
       <Title>New Events</Title>
       <Text>
       Arabic With AMAU is a brand-new programme, designed from the ground up, to make learning the Arabic language as easy and efficient as possible.
