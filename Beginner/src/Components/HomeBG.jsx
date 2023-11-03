@@ -11,12 +11,12 @@ const HomeBG = () => {
   return (
     <BackgroundContainer>
       <BackgroundContent>
-        <Title>Be Creative</Title>
-        <Text>
-          Get ready to transform your React Application to learn object about
-          Arabic Study
+        <Title>الدين الاسلامي</Title>
+        <Text> 
+          Get ready to level up yourself to study
+          Arabic <br/>& Improve knowledge of the religion
         </Text>
-        <Button>Start</Button>
+        <Button as='a' href="/student">Start</Button>
       </BackgroundContent>
     </BackgroundContainer>
   );

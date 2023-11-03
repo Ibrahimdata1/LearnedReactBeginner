@@ -85,16 +85,8 @@ const Home = () => {
       </Link>
       <Title>New Events</Title>
       <Text>
-        {" "}
-        Due to the global transformation of technology in recent years, the
-        challenges we deal with have changed drastically in comparison to a few
-        decades ago. These challenges are constantly impacting education, the
-        workplace and our home life. To cope with the increasing pace of
-        modern-day life in the 21st century, you need to take a proactive
-        approach in ensuring you are always developing yourself as a Muslim.
-        Join our instructors on a wide-range of courses to become the best
-        version of yourself, and in the process, get closer to the One who
-        created you.
+      Arabic With AMAU is a brand-new programme, designed from the ground up, to make learning the Arabic language as easy and efficient as possible.
+This programme is ideally suited to those who want to learn Arabic on a part-time basis online. It is well suited to both adults and children. Previous experience of learning Arabic is not required. We even teach the Arabic alphabet for those who are not yet able to read. Don't worry if you have tried to learn Arabic before without success – our approach is considerably different to most other courses.
       </Text>
         <div style={{marginTop:'60px'}}>
           <Slider {...settings}>
